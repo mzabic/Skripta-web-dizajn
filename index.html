@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skripta za Pripremu Ispita - Web Dizajn</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --bg: #f8f9fa;
+            --text: #202124;
+            --card-bg: #ffffff;
+            --border: #dadce0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        header h1 { margin: 0; font-size: 1.8rem; }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background: #1557b0;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        nav a:hover { background: rgba(255,255,255,0.2); }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        h2 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; }
+        h3 { color: #3c4043; margin-top: 20px; }
+        ul, ol { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code { background: #e8eaed; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+        pre code { background: none; color: inherit; }
+        .back-to-top {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="vrh">Priprema za Ispit iz Web Dizajna</h1>
+    </header>
+
+    <nav>
+        <a href="#uvod">1. Uvod i Obrada Slike</a>
+        <a href="#html">2. HTML</a>
+        <a href="#css">3. CSS</a>
+        <a href="#wordpress">4. WordPress & SEO</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- 1. UVOD I OBRADA SLIKE -->
+        <section id="uvod">
+            <h2>1. Uvod i Obrada Slike</h2>
+            <ul>
+                <li><strong>Elementi web dizajna:</strong> Izgled (layout), boje, tipografija, grafika/slike, navigacija i sadržaj.</li>
+                <li><strong>World Wide Web (WWW):</strong> Globalni sustav međusobno povezanih hipertekstualnih dokumenata kojima se pristupa putem interneta koristeći HTTP/HTTPS protokole.</li>
+                <li><strong>Hypermedijski dokumenti vs. Hyperveze:</strong> Hipermedijski dokumenti sadrže kombinaciju teksta, slika, zvuka i videa, dok su hiperveze (linkovi) veze koje spajaju te dokumente.</li>
+                <li><strong>HTTP rad:</strong> Protokol po principu klijent-poslužitelj. Klijent (preglednik) šalje HTTP zahtjev poslužitelju, a poslužitelj vraća HTTP odgovor sa sadržajem.</li>
+                <li><strong>HTTP vs. HTTPS:</strong> HTTPS je sigurna verzija HTTP-a koja koristi SSL/TLS enkripciju za zaštitu prijenosa podataka.</li>
+                <li><strong>HTTP metode:</strong> <code>GET</code> (dohvaćanje), <code>POST</code> (slanje), <code>PUT</code> (ažuriranje), <code>DELETE</code> (brisanje).</li>
+                <li><strong>HTTP Status Kodovi:</strong> <code>1xx</code> (Informacija), <code>2xx</code> (Uspjeh - npr. 200 OK), <code>3xx</code> (Preusmjeravanje), <code>4xx</code> (Klijentska pogreška - npr. 404), <code>5xx</code> (Poslužiteljska pogreška).</li>
+                <li><strong>URL i dijelovi:</strong> Jedinstvena web adresa (Protokol + Domena + Priključak + Putanja + Parametri).</li>
+                <li><strong>Browser Engine vs. JS Engine:</strong> Browser engine renderira HTML/CSS (npr. Blink, Gecko), a JS engine izvršava JavaScript kod (npr. V8, SpiderMonkey).</li>
+                <li><strong>Aditivni vs. Suptraktivni model boja:</strong> Aditivni (RGB) miješa svjetlost (za ekrane), suptraktivni (CMYK) miješa pigmente/boje (za tisak).</li>
+                <li><strong>Heksadekadski vs. RGB zapis:</strong> RGB koristi vrijednosti 0-255 (npr. <code>rgb(255,0,0)</code>), dok heksadekadski koristi 6 hex znakova (npr. <code>#FF0000</code>).</li>
+                <li><strong>Vektorska vs. Rasterska grafika:</strong> Raster je građen od piksela i gubi kvalitetu pri povećanju (JPG, PNG); Vektor koristi matematičke formule i skalabilan je bez gubitka kvalitete (SVG, AI, PDF).</li>
+            </ul>
+            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
+        </section>
+
+        <!-- 2. HTML -->
+        <section id="html">
+            <h2>2. HTML</h2>
+            <ul>
+                <li><strong>Čemu služi HTML:</strong> HyperText Markup Language je jezik za označavanje koji definira strukturu i sadržaj web stranica.</li>
+                <li><strong>Block vs. Inline elementi:</strong> Block elementi zauzimaju cijelu širinu i počinju u novom redu (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>); Inline elementi zauzimaju samo potrebnu širinu (<code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>).</li>
+                <li><strong>Objašnjenje taga <code>&lt;a href="https://google.com" target="_blank"&gt;Google&lt;/a&gt;</code>:</strong> <code>href</code> definira odredišni URL, <code>target="_blank"</code> otvara vezu u novom prozoru/kartici, a "Google" je klikabilni tekst.</li>
+                <li><strong>Apsolutna vs. Relativna adresa:</strong> Apsolutna sadrži cjelovitu URL adresu uključujući protokol, dok relativna definira putanju u odnosu na trenutnu datoteku.</li>
+                <li><strong>Sidro (Anchor):</strong> Poveznica koja vodi na specifični dio unutar iste stranice pomoću <code>id</code> atributa.</li>
+                <li><strong>Spajanje ćelija u tablici:</strong> Atribut <code>colspan</code> spaja stupce, a <code>rowspan</code> spaja retke.</li>
+            </ul>
+
+            <h3>Primjer celovite HTML strukture s formom i tablicom:</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="hr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;HTML Vježba&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id="vrh"&gt;Naslov&lt;/h1&gt;
+    &lt;table border="1"&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Prva&lt;/td&gt;
+            &lt;td colspan="2"&gt;Druga i treća&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;form action="#" method="POST"&gt;
+        &lt;label for="ime"&gt;Ime:&lt;/label&gt;
+        &lt;input type="text" id="ime" name="ime" required&gt;
+        &lt;button type="submit"&gt;Pošalji&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
+        </section>
+
+        <!-- 3. CSS -->
+        <section id="css">
+            <h2>3. CSS</h2>
+            <ul>
+                <li><strong>Kaskadna primjena:</strong> Stilovi se primjenjuju hijerarhijski prema izvoru, specifičnosti selektora i redoslijedu pisanja.</li>
+                <li><strong>Načini povezivanja CSS-a:</strong> Linijski (<code>style=""</code> atribut), Unutarnji (<code>&lt;style&gt;</code> tag u headu), Vanjski (<code>&lt;link rel="stylesheet" href="style.css"&gt;</code>).</li>
+                <li><strong>CSS Kombinatori:</strong>
+                    <ul>
+                        <li><code>div span</code>: Svi span potomci unutar div-a.</li>
+                        <li><code>div > span</code>: Izravna djeca span unutar div-a.</li>
+                        <li><code>div + span</code>: Prvi susjedni span odmah nakon div-a.</li>
+                        <li><code>div ~ span</code>: Svi susjedni span elementi koji slijede nakon div-a.</li>
+                    </ul>
+                </li>
+                <li><strong>Box Model:</strong> Content + Padding + Border + Margin.</li>
+                <li><strong>box-sizing:</strong> <code>content-box</code> dodaje padding i border na zadanu širinu; <code>border-box</code> uključuje padding i border unutar zadane širine.</li>
+                <li><strong>Pozicioniranje (position):</strong> <code>static</code> (normalni slijed), <code>relative</code> (relativno na svoj položaj), <code>absolute</code> (relativno na pozicionirani predak), <code>fixed</code> (fiksirano na prozor preglednika).</li>
+            </ul>
+            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
+        </section>
+
+        <!-- 4. WORDPRESS I SEO -->
+        <section id="wordpress">
+            <h2>4. WordPress & SEO</h2>
+            <ul>
+                <li><strong>Što je PHP:</strong> Skriptni jezik na strani poslužitelja (server-side) za izradu dinamičkih web stranica.</li>
+                <li><strong>Tehnologije za WordPress:</strong> PHP, MySQL/MariaDB, HTML, CSS, JavaScript.</li>
+                <li><strong>Cijena WordPressa:</strong> Softver sa stranice WordPress.org je potpuno besplatan i otvorenog koda (Open-source).</li>
+                <li><strong>Promjena teme i sadržaj:</strong> Promjena teme mijenja samo vizualni izgled; sadržaj ostaje netaknut u bazi podataka.</li>
+                <li><strong>Optimizirani SEO URL:</strong> Čitljiv i opisni URL (npr. <code>/guitars/fender/jaguar</code>) puno je bolji od URL-a s parametrima (<code>/category=1&prod=2</code>).</li>
+                <li><strong>Preporučene duljine metatagova:</strong> Title tag: 50–60 znakova; Meta description: 150–160 znakova.</li>
+                <li><strong>sitemap.xml vs. robots.txt:</strong> <code>sitemap.xml</code> popisuje stranice za lakše indeksiranje; <code>robots.txt</code> daje upute tražilicama koje dijelove stranice ne smiju pretraživati.</li>
+            </ul>
+            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
+        </section>
+
+    </div>
+
+</body>
+</html>
