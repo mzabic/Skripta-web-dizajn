@@ -3,194 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skripta za Pripremu Ispita - Web Dizajn</title>
+    <title>Priprema za ispit - HTML & CSS</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --primary: #1a73e8;
-            --bg: #f8f9fa;
-            --text: #202124;
-            --card-bg: #ffffff;
-            --border: #dadce0;
-        }
+        /* === OPĆI STILOVI ZA VJEŽBE === */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg);
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2, h3, h4 {
+            color: #222;
+        }
+
+        p {
+            margin: 10px 15px;
+        }
+
+        img.responsive-img {
+            width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Vježba: DIV elementi */
+        .div-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .div1 {
+            width: 160px;
+            height: 160px;
+            background-color: purple;
+            border: 2px solid yellow;
+            margin: 10px;
+            padding: 15px;
+            box-sizing: content-box;
+            color: white;
+        }
+
+        .div2 {
+            width: 160px;
+            height: 160px;
+            background-color: purple;
+            border: 2px solid yellow;
+            margin: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            background-image: url('https://via.placeholder.com/100');
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-position: center;
+            color: white;
+        }
+
+        .div3 {
+            width: 300px;
+            height: 120px;
+            background: linear-gradient(to right, red, blue);
+            border: 1px solid black;
+            padding: 10px;
+            color: white;
+        }
+
+        /* Vježba: Tablica */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin: 15px 0;
+            background-color: #fff;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        td, th {
+            padding: 8px;
+            text-align: center;
+        }
+
+        /* Vježba: Forma */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        /* === PARCIJALNI ISPIT LAYOUT (1060px) === */
+        .exam-container {
+            width: 1060px;
+            margin: 40px auto;
+            background-color: #7d7d7d;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .exam-header {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .exam-nav {
+            background-color: #ff55ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .exam-nav ul {
+            list-style: none;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        header h1 { margin: 0; font-size: 1.8rem; }
-        nav {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            background: #1557b0;
-            padding: 10px;
-            flex-wrap: wrap;
+            gap: 20px;
         }
-        nav a {
+
+        .exam-nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .exam-search {
+            display: flex;
+        }
+
+        .exam-search input[type="text"] {
+            padding: 5px;
+            border: none;
+        }
+
+        .exam-search button {
+            background-color: #333;
             color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 4px;
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
         }
-        nav a:hover { background: rgba(255,255,255,0.2); }
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 20px;
+
+        .exam-main {
+            display: flex;
+            background-color: #fff;
         }
-        section {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
+
+        .exam-content {
+            width: 80%; /* 4/5 širine */
+            padding: 20px;
+            box-sizing: border-box;
         }
-        h2 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; }
-        h3 { color: #3c4043; margin-top: 20px; }
-        ul, ol { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        pre {
-            background: #272822;
-            color: #f8f8f2;
+
+        .exam-sidebar {
+            width: 20%; /* 1/5 širine */
+            background-color: #ff77ff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .exam-sidebar h3 {
+            font-style: italic;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .exam-sidebar ul {
+            padding-left: 20px;
+        }
+
+        .exam-sidebar a {
+            color: blue;
+        }
+
+        .exam-footer {
+            background-color: #fff;
             padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        code { background: #e8eaed; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
-        pre code { background: none; color: inherit; }
-        .back-to-top {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
+            border-top: 1px solid #ccc;
+            font-size: 14px;
         }
     </style>
 </head>
-<body>
+<body id="top">
 
-    <header>
-        <h1 id="vrh">Priprema za Ispit iz Web Dizajna</h1>
-    </header>
+    <h1>Moj HTML dokument</h1>
 
+    <!-- Navigacija sa sidrima -->
     <nav>
-        <a href="#uvod">1. Uvod i Obrada Slike</a>
-        <a href="#html">2. HTML</a>
-        <a href="#css">3. CSS</a>
-        <a href="#wordpress">4. WordPress & SEO</a>
+        <ul>
+            <li><a href="#vjezbe-div">CSS Div Vježbe</a></li>
+            <li><a href="#vjezba-tablica">Moja HTML tablica</a></li>
+            <li><a href="#vjezba-video">Moj HTML video</a></li>
+            <li><a href="#vjezba-forma">Moja HTML forma</a></li>
+            <li><a href="#vjezba-kontakt">Kontakt</a></li>
+            <li><a href="#parcijalni-ispit">Primjer Parcijalni Ispit</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
+    <hr>
 
-        <!-- 1. UVOD I OBRADA SLIKE -->
-        <section id="uvod">
-            <h2>1. Uvod i Obrada Slike</h2>
-            <ul>
-                <li><strong>Elementi web dizajna:</strong> Izgled (layout), boje, tipografija, grafika/slike, navigacija i sadržaj.</li>
-                <li><strong>World Wide Web (WWW):</strong> Globalni sustav međusobno povezanih hipertekstualnih dokumenata kojima se pristupa putem interneta koristeći HTTP/HTTPS protokole.</li>
-                <li><strong>Hypermedijski dokumenti vs. Hyperveze:</strong> Hipermedijski dokumenti sadrže kombinaciju teksta, slika, zvuka i videa, dok su hiperveze (linkovi) veze koje spajaju te dokumente.</li>
-                <li><strong>HTTP rad:</strong> Protokol po principu klijent-poslužitelj. Klijent (preglednik) šalje HTTP zahtjev poslužitelju, a poslužitelj vraća HTTP odgovor sa sadržajem.</li>
-                <li><strong>HTTP vs. HTTPS:</strong> HTTPS je sigurna verzija HTTP-a koja koristi SSL/TLS enkripciju za zaštitu prijenosa podataka.</li>
-                <li><strong>HTTP metode:</strong> <code>GET</code> (dohvaćanje), <code>POST</code> (slanje), <code>PUT</code> (ažuriranje), <code>DELETE</code> (brisanje).</li>
-                <li><strong>HTTP Status Kodovi:</strong> <code>1xx</code> (Informacija), <code>2xx</code> (Uspjeh - npr. 200 OK), <code>3xx</code> (Preusmjeravanje), <code>4xx</code> (Klijentska pogreška - npr. 404), <code>5xx</code> (Poslužiteljska pogreška).</li>
-                <li><strong>URL i dijelovi:</strong> Jedinstvena web adresa (Protokol + Domena + Priključak + Putanja + Parametri).</li>
-                <li><strong>Browser Engine vs. JS Engine:</strong> Browser engine renderira HTML/CSS (npr. Blink, Gecko), a JS engine izvršava JavaScript kod (npr. V8, SpiderMonkey).</li>
-                <li><strong>Aditivni vs. Suptraktivni model boja:</strong> Aditivni (RGB) miješa svjetlost (za ekrane), suptraktivni (CMYK) miješa pigmente/boje (za tisak).</li>
-                <li><strong>Heksadekadski vs. RGB zapis:</strong> RGB koristi vrijednosti 0-255 (npr. <code>rgb(255,0,0)</code>), dok heksadekadski koristi 6 hex znakova (npr. <code>#FF0000</code>).</li>
-                <li><strong>Vektorska vs. Rasterska grafika:</strong> Raster je građen od piksela i gubi kvalitetu pri povećanju (JPG, PNG); Vektor koristi matematičke formule i skalabilan je bez gubitka kvalitete (SVG, AI, PDF).</li>
-            </ul>
-            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
-        </section>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
+    <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.</p>
 
-        <!-- 2. HTML -->
-        <section id="html">
-            <h2>2. HTML</h2>
-            <ul>
-                <li><strong>Čemu služi HTML:</strong> HyperText Markup Language je jezik za označavanje koji definira strukturu i sadržaj web stranica.</li>
-                <li><strong>Block vs. Inline elementi:</strong> Block elementi zauzimaju cijelu širinu i počinju u novom redu (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>); Inline elementi zauzimaju samo potrebnu širinu (<code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>).</li>
-                <li><strong>Objašnjenje taga <code>&lt;a href="https://google.com" target="_blank"&gt;Google&lt;/a&gt;</code>:</strong> <code>href</code> definira odredišni URL, <code>target="_blank"</code> otvara vezu u novom prozoru/kartici, a "Google" je klikabilni tekst.</li>
-                <li><strong>Apsolutna vs. Relativna adresa:</strong> Apsolutna sadrži cjelovitu URL adresu uključujući protokol, dok relativna definira putanju u odnosu na trenutnu datoteku.</li>
-                <li><strong>Sidro (Anchor):</strong> Poveznica koja vodi na specifični dio unutar iste stranice pomoću <code>id</code> atributa.</li>
-                <li><strong>Spajanje ćelija u tablici:</strong> Atribut <code>colspan</code> spaja stupce, a <code>rowspan</code> spaja retke.</li>
-            </ul>
+    <!-- Ogledne slike -->
+    <img src="https://via.placeholder.com/500x200" alt="Prva demo slika" class="responsive-img">
+    <br>
+    <img src="https://via.placeholder.com/500x200/008080/ffffff" alt="Druga demo slika" class="responsive-img">
 
-            <h3>Primjer celovite HTML strukture s formom i tablicom:</h3>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="hr"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;HTML Vježba&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1 id="vrh"&gt;Naslov&lt;/h1&gt;
-    &lt;table border="1"&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Prva&lt;/td&gt;
-            &lt;td colspan="2"&gt;Druga i treća&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/table&gt;
-    &lt;form action="#" method="POST"&gt;
-        &lt;label for="ime"&gt;Ime:&lt;/label&gt;
-        &lt;input type="text" id="ime" name="ime" required&gt;
-        &lt;button type="submit"&gt;Pošalji&lt;/button&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
-        </section>
-
-        <!-- 3. CSS -->
-        <section id="css">
-            <h2>3. CSS</h2>
-            <ul>
-                <li><strong>Kaskadna primjena:</strong> Stilovi se primjenjuju hijerarhijski prema izvoru, specifičnosti selektora i redoslijedu pisanja.</li>
-                <li><strong>Načini povezivanja CSS-a:</strong> Linijski (<code>style=""</code> atribut), Unutarnji (<code>&lt;style&gt;</code> tag u headu), Vanjski (<code>&lt;link rel="stylesheet" href="style.css"&gt;</code>).</li>
-                <li><strong>CSS Kombinatori:</strong>
-                    <ul>
-                        <li><code>div span</code>: Svi span potomci unutar div-a.</li>
-                        <li><code>div > span</code>: Izravna djeca span unutar div-a.</li>
-                        <li><code>div + span</code>: Prvi susjedni span odmah nakon div-a.</li>
-                        <li><code>div ~ span</code>: Svi susjedni span elementi koji slijede nakon div-a.</li>
-                    </ul>
-                </li>
-                <li><strong>Box Model:</strong> Content + Padding + Border + Margin.</li>
-                <li><strong>box-sizing:</strong> <code>content-box</code> dodaje padding i border na zadanu širinu; <code>border-box</code> uključuje padding i border unutar zadane širine.</li>
-                <li><strong>Pozicioniranje (position):</strong> <code>static</code> (normalni slijed), <code>relative</code> (relativno na svoj položaj), <code>absolute</code> (relativno na pozicionirani predak), <code>fixed</code> (fiksirano na prozor preglednika).</li>
-            </ul>
-            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
-        </section>
-
-        <!-- 4. WORDPRESS I SEO -->
-        <section id="wordpress">
-            <h2>4. WordPress & SEO</h2>
-            <ul>
-                <li><strong>Što je PHP:</strong> Skriptni jezik na strani poslužitelja (server-side) za izradu dinamičkih web stranica.</li>
-                <li><strong>Tehnologije za WordPress:</strong> PHP, MySQL/MariaDB, HTML, CSS, JavaScript.</li>
-                <li><strong>Cijena WordPressa:</strong> Softver sa stranice WordPress.org je potpuno besplatan i otvorenog koda (Open-source).</li>
-                <li><strong>Promjena teme i sadržaj:</strong> Promjena teme mijenja samo vizualni izgled; sadržaj ostaje netaknut u bazi podataka.</li>
-                <li><strong>Optimizirani SEO URL:</strong> Čitljiv i opisni URL (npr. <code>/guitars/fender/jaguar</code>) puno je bolji od URL-a s parametrima (<code>/category=1&prod=2</code>).</li>
-                <li><strong>Preporučene duljine metatagova:</strong> Title tag: 50–60 znakova; Meta description: 150–160 znakova.</li>
-                <li><strong>sitemap.xml vs. robots.txt:</strong> <code>sitemap.xml</code> popisuje stranice za lakše indeksiranje; <code>robots.txt</code> daje upute tražilicama koje dijelove stranice ne smiju pretraživati.</li>
-            </ul>
-            <a href="#vrh" class="back-to-top">↑ Povratak na vrh</a>
-        </section>
-
+    <!-- CSS DIV VJEŽBE -->
+    <h2 id="vjezbe-div">CSS Div Vježbe</h2>
+    <div class="div-container">
+        <div class="div1">DIV 1 (content-box)</div>
+        <div class="div2">DIV 2 (border-box)</div>
+        <div class="div3">DIV 3 (Gradijent)</div>
     </div>
+
+    <!-- TABLICA VJEŽBA -->
+    <h2 id="vjezba-tablica">Moja HTML tablica</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td>Prva</td>
+                <td colspan="2">Druga i treća</td>
+                <td colspan="2">Četvrta</td>
+                <td colspan="2">Peta</td>
+            </tr>
+            <tr>
+                <td>Prva</td>
+                <td>Druga i druga</td>
+                <td>Treća</td>
+                <td colspan="2">Četvrta</td>
+                <td colspan="2">Peta</td>
+            </tr>
+            <tr>
+                <td>Prva</td>
+                <td></td>
+                <td>Treća</td>
+                <td colspan="4">Četvrta i peta i četvrta i peta</td>
+            </tr>
+            <tr>
+                <td colspan="3">Prva, druga i treća</td>
+                <td colspan="4"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- VIDEO VJEŽBA -->
+    <h3 id="vjezba-video">Moj HTML video</h3>
+    <video controls width="400">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Vaš preglednik ne podržava video element.
+    </video>
+
+    <!-- FORMA VJEŽBA -->
+    <h3 id="vjezba-forma">Moja HTML forma</h3>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" name="ime" required>
+        </div>
+        <div class="form-group">
+            <label for="prezime">Prezime:</label>
+            <input type="text" id="prezime" name="prezime" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail adresa:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="poruka">Poruka:</label>
+            <textarea id="poruka" name="poruka" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="izbor">Odaberite opciju:</label>
+            <select id="izbor" name="izbor">
+                <option value="opcija1">Opcija 1</option>
+                <option value="opcija2">Opcija 2</option>
+                <option value="opcija3">Opcija 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="prihvaca" name="prihvaca"> Prihvaćam uvjete korištenja
+            </label>
+        </div>
+        <button type="submit">Pošalji</button>
+    </form>
+
+    <!-- KONTAKT SEKCIJA -->
+    <h4 id="vjezba-kontakt">Kontakt</h4>
+    <p>
+        Službena stranica: <a href="https://www.algebra.com" target="_blank">www.algebra.com</a><br>
+        E-mail: <a href="mailto:korisnik@primjer.hr">korisnik@primjer.hr</a><br>
+        Telefon: <a href="tel:+38512345678">+385 1 234 5678</a>
+    </p>
+
+    <!-- PARCIJALNI ISPIT ZADATAK -->
+    <hr>
+    <h2 id="parcijalni-ispit">Primjer Parcijalni Ispit Layout</h2>
+
+    <div class="exam-container">
+        <div class="exam-header">
+            Header
+        </div>
+        <div class="exam-nav">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">OUR TEAM</a></li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+            <form class="exam-search" action="#">
+                <input type="text" placeholder="Search query">
+                <button type="submit">Go!</button>
+            </form>
+        </div>
+        <div class="exam-main">
+            <div class="exam-content">
+                <h1>Article heading</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit.</p>
+                
+                <h2>subsection</h2>
+                <p>Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Pelientesque auctor nisi id magna consequat sagittis. Curabitur dapibus, enim sit amet elit pharetra tinstidunt feugiat nist imperdiet.</p>
+
+                <h2>Another subsection</h2>
+                <p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p>Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae sagittis vel odio.</p>
+            </div>
+            <div class="exam-sidebar">
+                <h3>Related</h3>
+                <ul>
+                    <li><a href="#">Oh I do like to be beside the seaside</a></li>
+                    <li><a href="#">Oh I do like to be beside the sea</a></li>
+                    <li><a href="#">Although in the North of England</a></li>
+                    <li><a href="#">It never stops raining</a></li>
+                    <li><a href="#">Oh well...</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="exam-footer">
+            ©Copyright 2050 by nobody. All rights reversed.
+        </div>
+    </div>
+
+    <p><a href="#top">Povratak na vrh stranice</a></p>
 
 </body>
 </html>
