@@ -52,6 +52,7 @@
             margin-bottom: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: block; /* Osigurava vidljivost sekcija */
         }
 
         h2 {
@@ -90,10 +91,10 @@
 
         /* === DEMO STILOVI IZ CSS VJEŽBI === */
         img.demo-img {
-            width: 500px;
+            max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 10px auto;
         }
 
         p.styled-p {
@@ -186,16 +187,23 @@
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
-        } /* <--- ISPRAVLJENO: Dodana zatvorena zagrada */
+        }
 
-        /* === PARCIJALNI ISPIT LAYOUT (1060px) === */
+        /* === PARCIJALNI ISPIT LAYOUT (Prilagođen da ne ruši stranicu) === */
+        .exam-wrapper {
+            overflow-x: auto; /* Omogućuje skrolanje ako je ekran manji od 1060px */
+            padding-bottom: 15px;
+        }
+
         .exam-container {
             width: 1060px;
-            margin: 30px auto;
+            max-width: 100%;
+            margin: 20px auto;
             background-color: #7d7d7d;
             font-family: Arial, sans-serif;
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
             color: #000;
+            box-sizing: border-box;
         }
 
         .exam-header {
@@ -252,13 +260,13 @@
         }
 
         .exam-content {
-            width: 80%; /* 4/5 širine */
+            width: 80%;
             padding: 20px;
             box-sizing: border-box;
         }
 
         .exam-sidebar {
-            width: 20%; /* 1/5 širine */
+            width: 20%;
             background-color: #ff77ff;
             padding: 20px;
             box-sizing: border-box;
@@ -292,7 +300,7 @@
 
     <header>
         <h1>Priprema za ispit – Algebra</h1>
-        <p>Sva teorijska pitanja, praktične vježbe i zadaci u jednoj datoteci za učenje.</p>
+        <p>Sva teorijska pitanja, praktične vježbe i zadaci u jednoj datoteci za učenje[cite: 2].</p>
     </header>
 
     <!-- Navigacija / Sadržaj -->
@@ -309,7 +317,7 @@
 
     <!-- 1. UVOD I OBRADA SLIKE -->
     <section id="uvod">
-        <h2>1. UVOD I OBRADA SLIKE</h2>
+        <h2>1. UVOD I OBRADA SLIKE[cite: 2]</h2>
         
         <div class="qa-block">
             <div class="question">Koji su elementi web dizajna?</div>
@@ -358,11 +366,11 @@
             <div class="answer">Browser engine rendersira HTML i CSS te gradi vizualni prikaz stranice, dok JavaScript engine prevodi i izvršava JavaScript kôd.</div>
         </div>
         <div class="qa-block">
-            <div class="question">Koji su najčešći preglednici koji se koriste?</div>
+            <div class="question">Koji su najčešće korišteni preglednici?</div>
             <div class="answer">Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge.</div>
         </div>
         <div class="qa-block">
-            <div class="question">Koja je razlika između aditivnog i subratkivnog modela boje?</div>
+            <div class="question">Koja je razlika između aditivnog i subtraktivnog modela boje?</div>
             <div class="answer">Aditivni model (RGB) zbraja svjetlost i koristi se za ekrane (miješanjem svih nastaje bijela). Subtraktivni model (CMYK) oduzima svjetlost miješanjem pigmenata u tisku (miješanjem nastaje crna).</div>
         </div>
         <div class="qa-block">
@@ -383,309 +391,4 @@
         </div>
         <div class="qa-block">
             <div class="question">Koja je razlika između vektorske i rasterske grafike?</div>
-            <div class="answer">Vektorska grafika sastoji se od matematičkih linija i oblika pa se može neograničeno skalirati bez gubitka kvalitete. Rasterska grafika sastoji se od fiksnog broja piksela te se pri povećanju gubi kvaliteta.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koje su prednosti vektorske, a koje rasterske grafike?</div>
-            <div class="answer">Prednosti vektorske: skalabilnost bez gubitka kvalitete i manje datoteke za oblike/logotipe. Prednosti rasterske: prikaz složenih detalja, tonova i gradijenata idealnih za fotografije.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koji se formati datoteka najčešće koriste za spremanje vektorskih, a koji za rasterske?</div>
-            <div class="answer">Vektorski: SVG, EPS, AI, PDF. Rasterski: JPEG, PNG, GIF, WEBP.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koji su najčešći strukturni elementi web stranica?</div>
-            <div class="answer">Header (zaglavlje), Navigation (izbornik), Main content (glavni sadržaj), Sidebar/Aside (bočna traka) i Footer (podnožje).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što je wireframing?</div>
-            <div class="answer">Proces izrade jednostavnog vizualnog nacrta ili skice izgleda i strukture web stranice prije same izrade dizajna i pisanja koda.</div>
-        </div>
-
-        <div class="practical-box">
-            <strong>Upute za Vježbu (Figma):</strong>
-            <p>U Figmi kreirajte novi Frame. Pomoću alata <em>Text (T)</em> unesite tekst i promijenite mu obitelj fonta, veličinu, <em>line-height</em> (prored) i <em>letter-spacing</em>. Nacrtajte pravokutnik/krug pomoću <em>Shape Tools</em>, dodajte <em>Fill</em> (ispunu), <em>Stroke</em> (obrub) i <em>Drop Shadow</em> efekt. Ubacite sliku (<em>Place Image</em>). Odaberite element, idite na <em>Export</em> na dnu desnog panela i izvezite kao PNG. Grupirajte elemente (Ctrl+G / Cmd+G) te izvezite cijelu grupu kao PDF.</p>
-        </div>
-    </section>
-
-    <!-- 2. HTML -->
-    <section id="html">
-        <h2>2. HTML</h2>
-
-        <div class="qa-block">
-            <div class="question">Kakav jezik je html (čemu služi)?</div>
-            <div class="answer">HTML (HyperText Markup Language) je jezik za označavanje koji služi za definiranje strukture i sadržaja web stranica.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Kako se piše html, od čega je sastavljen?</div>
-            <div class="answer">Piše se pomoću HTML oznaka (tagova) unutar oštrih zagrada, najčešće u parovima: &lt;tag&gt;sadržaj&lt;/tag&gt;.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Čemu služe atributi oznake i koje vrste atributa postoje?</div>
-            <div class="answer">Atributi pružaju dodatne informacije o elementu. Postoje globalni atributi (npr. id, class, style) i specifični atributi (npr. src za sliku, href za poveznicu).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što su html entiteti?</div>
-            <div class="answer">HTML entiteti su posebni nizovi znakova koji se koriste za prikaz rezerviranih znakova (npr. &amp;lt; za &lt;) ili nevidljivih znakova (npr. &amp;nbsp; za razmak).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koje ekstenzije imaju html dokumenti?</div>
-            <div class="answer">.html ili .htm.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Gdje se nalazi sadržaj u html elementu?</div>
-            <div class="answer">Između početne i završne oznake elementa.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što sadrži head dio html dokumenta?</div>
-            <div class="answer">Sadrži metapodatke, naslov stranice (&lt;title&gt;), poveznice na CSS datoteke, JS skripte, definiciju kodnog rasporeda i prilagodbe za ekrane.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što su block elementi? Navedite nekoliko block elemenata.</div>
-            <div class="answer">Blok elementi uvijek započinju u novom redu i zauzimaju čitavu dostupnu širinu. Primjeri: &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;-&lt;h6&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;form&gt;, &lt;article&gt;.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što su inline elementi? Navedite nekoliko inline elemenata.</div>
-            <div class="answer">Inline elementi zauzimaju samo onoliko širine koliko je potrebno za njihov sadržaj i ne prelaze u novi red. Primjeri: &lt;span&gt;, &lt;a&gt;, &lt;img&gt;, &lt;strong&gt;, &lt;em&gt;.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koje oznake koristimo za označavanje naslova, paragrafa, slike, poveznice, podebljanog teksta, nakošenog teksta, prekriženog teksta, ubačenog teksta, indeksa i eksponenta?</div>
-            <div class="answer">
-                Naslovi: &lt;h1&gt; do &lt;h6&gt; | Paragraf: &lt;p&gt; | Slika: &lt;img&gt; | Poveznica: &lt;a&gt;<br>
-                Podebljano: &lt;strong&gt; ili &lt;b&gt; | Nakošeno: &lt;em&gt; ili &lt;i&gt; | Prekriženo: &lt;del&gt;<br>
-                Ubačeno: &lt;ins&gt; | Indeks: &lt;sub&gt; | Eksponent: &lt;sup&gt;
-            </div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koje liste postoje u html-u? Kako se označavaju liste i njihovi elementi?</div>
-            <div class="answer">Nesortirane liste (&lt;ul&gt;), sortirane liste (&lt;ol&gt;) i opisne liste (&lt;dl&gt;). Elementi u &lt;ul&gt; i &lt;ol&gt; označavaju se s &lt;li&gt;.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što su strukturni elementi i čemu služe?</div>
-            <div class="answer">Elementi koji definiraju osnovni izgled i raspored sekcija unutar web stranice (npr. &lt;div&gt;, &lt;header&gt;, &lt;footer&gt;).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što su semantički elementi i čemu služe?</div>
-            <div class="answer">Elementi koji jasno opisuju svoje značenje pregledniku i tražilicama (npr. &lt;article&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;aside&gt;), što poboljšava pristupačnost i SEO.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Objasni obojane elemente ovog html elementa: &lt;a href="https://google.com" target="_blank"&gt;Google&lt;/a&gt;</div>
-            <div class="answer">
-                &lt;a&gt;&lt;/a&gt; je HTML oznaka za hipervezu (sidro).<br>
-                href="..." je atribut koji specificira ciljnu web adresu.<br>
-                target="_blank" je atribut koji otvara vezu u novom prozoru/kartici.<br>
-                "Google" je vidljivi tekst poveznice.
-            </div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što je href i čemu služi?</div>
-            <div class="answer">Atribut unutar &lt;a&gt; oznake koji definira odrediše (URL ili sidro) na koje veza vodi.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Čemu služi target atribut i koje vrste vrijednosti postoje?</div>
-            <div class="answer">Definira gdje će se otvoriti poveznica. Vrijednosti: _self (u istom prozoru, zadano), _blank (u novom kartici), _parent, _top.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja je razlika između apsolutne i relativne adrese?</div>
-            <div class="answer">Apsolutna adresa sadrži punu web adresu (npr. https://example.com/slika.jpg), dok relativna adresa definira putanju u odnosu na trenutnu lokaciju datoteke (npr. images/slika.jpg).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Kako se označavaju poveznice na e-mail adresu i na telefonski broj?</div>
-            <div class="answer">E-mail: &lt;a href="mailto:ime@domena.com"&gt;Pošalji e-mail&lt;/a&gt; | Telefon: &lt;a href="tel:+3851234567"&gt;Pozovi&lt;/a&gt;.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što je sidro?</div>
-            <div class="answer">Poveznica koja vodi na određeno mjesto na istoj web stranici pomoću id atributa (npr. href="#naslov2").</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Pomoću koje oznake dodajemo sliku u html? Koje atribute sadrži?</div>
-            <div class="answer">Pomoću oznake &lt;img&gt;. Glavni atributi su src (izvor slike) i alt (zamjenski tekst).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Kako funkcioniraju oznake figure i figcaption?</div>
-            <div class="answer">&lt;figure&gt; se koristi za obuhvaćanje samostalnog sadržaja (npr. slike ili dijagrama), a &lt;figcaption&gt; unutar njega definira naslov ili opis tog sadržaja.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Kako se označava audio ili video sadržaj?</div>
-            <div class="answer">Pomoću oznaka &lt;audio controls&gt; i &lt;video controls&gt; u kombinaciji s &lt;source src="..." type="..."&gt; pod-elementima.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što sadrže html tablice? Koje oznake se koriste za tablice, ćelije i redove?</div>
-            <div class="answer">Tablice sadrže redove i ćelije. Oznake: &lt;table&gt; (tablica), &lt;tr&gt; (red), &lt;td&gt; (ćelija podataka), &lt;th&gt; (ćelija zaglavlja).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Pomoću kojih atributa ćelija u tablici se može protezati u više redaka i stupaca?</div>
-            <div class="answer">colspan (spajanje stupaca) i rowspan (spajanje redaka).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koji semantičke elemente koristimo za označavanje tablica?</div>
-            <div class="answer">&lt;thead&gt; (zaglavlje tablice), &lt;tbody&gt; (tijelo tablice) i &lt;tfoot&gt; (podnožje tablice).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Čemu služi html obrazac?</div>
-            <div class="answer">Služi za prikupljanje unosa korisnika i slanje tih podataka na poslužitelj radi obrade.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koji su najčešći elementi za izradu obrazaca?</div>
-            <div class="answer">&lt;form&gt;, &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, &lt;option&gt;, &lt;label&gt;, &lt;button&gt;.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Čemu služe metapodaci i u kojem dijelu html dokumenta se nalaze?</div>
-            <div class="answer">Pružaju informacije o dokumentu preglednicima i tražilicama. Nalaze se unutar &lt;head&gt; dijela.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koji su najčešće korišteni metapodaci?</div>
-            <div class="answer">&lt;meta charset="UTF-8"&gt;, &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;, &lt;meta name="description" content="..."&gt;.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Čemu služe id, action i alt atributi?</div>
-            <div class="answer">
-                id: Jedinstveni identifikator elementa na stranici.<br>
-                action: URL na koji se šalju podaci obrasca nakon slanja.<br>
-                alt: Opis slike ako se slika ne učita ili za čitače ekrana.
-            </div>
-        </div>
-
-        <div class="practical-box">
-            <h3>Praktična HTML Vježba (Live prikaz dolje):</h3>
-            <ul>
-                <li><a href="#vjezbe-div">Idi na CSS Div Vježbe</a></li>
-                <li><a href="#vjezba-tablica">Idi na HTML Tablicu</a></li>
-                <li><a href="#vjezba-video">Idi na HTML Video</a></li>
-                <li><a href="#vjezba-forma">Idi na HTML Formu</a></li>
-            </ul>
-
-            <p class="styled-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-            <p class="styled-p">Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
-
-            <img src="https://via.placeholder.com/500x200" alt="Prva testna slika" class="demo-img">
-            <br>
-            <img src="https://via.placeholder.com/500x200/007bff/ffffff" alt="Druga testna slika" class="demo-img">
-
-            <h3 id="vjezba-tablica">Moja HTML tablica</h3>
-            <table class="demo-table">
-                <tbody>
-                    <tr>
-                        <td>Prva</td>
-                        <td colspan="2">Druga i treća</td>
-                        <td colspan="2">Četvrta</td>
-                        <td colspan="2">Peta</td>
-                    </tr>
-                    <tr>
-                        <td>Prva</td>
-                        <td>Druga i druga</td>
-                        <td>Treća</td>
-                        <td colspan="2">Četvrta</td>
-                        <td colspan="2">Peta</td>
-                    </tr>
-                    <tr>
-                        <td>Prva</td>
-                        <td></td>
-                        <td>Treća</td>
-                        <td colspan="4">Četvrta i peta i četvrta i peta</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">Prva, druga i treća</td>
-                        <td colspan="4"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 id="vjezba-video">Moj HTML video</h3>
-            <video controls width="320">
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            </video>
-
-            <h3 id="vjezba-forma">Moja HTML forma</h3>
-            <form class="demo-form" action="#" method="post">
-                <div class="form-group">
-                    <label for="fname">Ime:</label>
-                    <input type="text" id="fname" name="fname">
-                </div>
-                <div class="form-group">
-                    <label for="lname">Prezime:</label>
-                    <input type="text" id="lname" name="lname">
-                </div>
-                <div class="form-group">
-                    <label for="uemail">E-mail adresa:</label>
-                    <input type="email" id="uemail" name="uemail">
-                </div>
-                <div class="form-group">
-                    <label for="umsg">Tekstualno područje:</label>
-                    <textarea id="umsg" name="umsg" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="uselect">Padajući izbornik:</label>
-                    <select id="uselect" name="uselect">
-                        <option value="1">Opcija 1</option>
-                        <option value="2">Opcija 2</option>
-                        <option value="3">Opcija 3</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label><input type="checkbox" id="ucheck" name="ucheck"> Potvrđujem unos</label>
-                </div>
-                <button type="submit">Pošalji</button>
-            </form>
-
-            <h4>Kontakt</h4>
-            <p>
-                Link: <a href="https://www.algebra.com" target="_blank">www.algebra.com</a><br>
-                Email: <a href="mailto:korisnik@algebra.hr">korisnik@algebra.hr</a><br>
-                Telefon: <a href="tel:+38512345678">+385 1 234 5678</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- 3. CSS -->
-    <section id="css">
-        <h2>3. CSS</h2>
-
-        <div class="qa-block">
-            <div class="question">Je li css programski jezik (ako ne, koji je)?</div>
-            <div class="answer">CSS nije programski jezik nego jezik stilskih pravila (style sheet language). Programski jezici su npr. JavaScript, Python, PHP.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Čemu služi stilski jezik?</div>
-            <div class="answer">Služi za definiranje vizualnog izgleda, rasporeda i stiliziranja dokumenata napisanih u jeziku za označavanje (HTML).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što su liste stilskih pravila?</div>
-            <div class="answer">Nizovi stilskih deklaracija u kojima su zadana svojstva i vrijednosti za odabrane HTML selektore.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što znači kaskadna primjena stilskih pravila?</div>
-            <div class="answer">Znači da se stilovi primjenjuju po hijerarhiji i specifičnosti. Pravila definirana kasnije ili s većom specifičnošću pregažaju ranije izračunate stilove.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Kako se piše css pravilo? Kako odvajamo više css svojstava u istom pravilu?</div>
-            <div class="answer">Sintaksa: selektor { svojstvo: vrijednost; }. Više svojstava odvaja se točkom-zarezom (;).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koju ekstenziju imaju css datoteke?</div>
-            <div class="answer">.css.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja su 3 načina na koje možemo povezati i pisati css pravila u html dokumentu?</div>
-            <div class="answer">1. Vanjski CSS (&lt;link rel="stylesheet" href="style.css"&gt;)<br>2. Unutarnji CSS (&lt;style&gt; u &lt;head&gt;)<br>3. Linijski/Inline CSS (style="..." atribut).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Kako pišemo selektore za: sve oznake, specifičnu oznaku, po ID-u, po klasi?</div>
-            <div class="answer">
-                Sve oznake: * { ... }<br>
-                Specifična oznaka: p { ... } ili div { ... }<br>
-                Po ID-u: #mojID { ... }<br>
-                Po klasi: .mojaklasa { ... }
-            </div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Čemu služi selektor pseudo klase i što omogućava pseudo klasa :hover?</div>
-            <div class="answer">Pseudo klase definiraju stilove za posebno stanje elementa. :hover definira stilove kada korisnik prijeđe mišem preko elementa.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što su css kombinatori i kako djeluju sledeći selektori: div span, div > span, div + span, div ~ span?</div>
-            <div class="answer">
-                div span: Svi span elementi unutar div-a (potomci).<br>
-                div > span: Svi span elementi koji su izravni potomci div-a.<br>
-                div + span: Prvi span element koji se nalazi neposredno nakon div-a.<br>
-                div ~ span: Svi span
+            <div class="answer">V
