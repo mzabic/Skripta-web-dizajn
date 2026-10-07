@@ -3,450 +3,1375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web dizajn - Priprema za ispit</title>
+    <title>Materijali za učenje i pripremu ispita - Web Dizajn</title>
     <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f4f6f9;
+            --text-color: #333;
+            --border-color: #ddd;
+            --code-bg: #272822;
+            --code-color: #f8f8f2;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            color: var(--text-color);
             background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
         }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
             padding-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            background-color: #e9ecef;
+            padding: 10px 15px;
+            border-left: 5px solid var(--primary-color);
             margin-top: 40px;
         }
-        h2 {
-            color: #2980b9;
-            border-bottom: 2px solid #bdc3c7;
-            padding-bottom: 5px;
-            margin-top: 30px;
+
+        .qa-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
-        h3 {
-            color: #16a085;
-            margin-top: 25px;
-        }
-        .qa-block {
-            background: #fff;
-            border-left: 5px solid #3498db;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border-radius: 0 5px 5px 0;
-        }
+
         .question {
             font-weight: bold;
-            color: #2c3e50;
             font-size: 1.1em;
+            color: #1a252f;
+            margin-bottom: 8px;
         }
+
         .answer {
-            margin-top: 8px;
             color: #444;
+            padding-left: 15px;
         }
+
+        .exercise-box {
+            background-color: #f8f9fa;
+            border: 1px solid #c3e6cb;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .exercise-title {
+            font-weight: bold;
+            color: #155724;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
         pre {
-            background: #2d2d2d;
-            color: #f8f8f2;
+            background-color: var(--code-bg);
+            color: var(--code-color);
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 0.95em;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
         }
+
         code {
-            font-family: 'Consolas', 'Monaco', monospace;
-            background: #ecf0f1;
+            background-color: #eee;
             padding: 2px 5px;
             border-radius: 3px;
-            color: #c0392b;
+            font-family: 'Courier New', Courier, monospace;
         }
+
         pre code {
-            background: transparent;
-            color: inherit;
+            background-color: transparent;
             padding: 0;
         }
-        .exercise-box {
-            background: #e8f6f3;
-            border: 1px solid #1abc9c;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .exercise-box h3 {
-            margin-top: 0;
-            color: #0e6655;
-        }
-        .note {
-            background: #fef9e7;
-            border-left: 5px solid #f1c40f;
-            padding: 10px 15px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 15px 0;
         }
-        ul, ol {
-            margin: 10px 0;
-            padding-left: 25px;
+
+        table, th, td {
+            border: 1px solid var(--border-color);
         }
-        li {
-            margin-bottom: 5px;
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .nav-sticky a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-sticky a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <h1>Web dizajn - Priprema za ispit</h1>
-    <p>Kompletni odgovori na teorijska pitanja i rješenja praktičnih zadataka.</p>
+<div class="container">
+    <h1>Priprema za ispit: Web Dizajn</h1>
+    
+    <div class="nav-sticky">
+        <a href="#uvod">1. Uvod i obrada slike</a>
+        <a href="#html">2. HTML</a>
+        <a href="#css">3. CSS</a>
+        <a href="#wordpress">4. WordPress i SEO</a>
+    </div>
 
-    <!-- ============================================================ -->
-    <!-- TEMA 1: UVOD I OBRADA SLIKE -->
-    <!-- ============================================================ -->
-    <h1>1. Uvod i obrada slike</h1>
+    <!-- CJELLINA 1 -->
+    <h2 id="uvod">1. UVOD I OBRADA SLIKE</h2>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">1. Koji su elementi web dizajna?</div>
-        <div class="answer">Elementi web dizajna uključuju: layout (raspored), boje, tipografiju (fontove), slike, grafiku, navigaciju, interaktivne elemente, animacije, sadržaj (tekst, video, audio) i korisničko iskustvo (UX).</div>
+        <div class="answer">Elementi web dizajna dijele se na **vizualne** (tekst/tipografija, boje, slike, oblike, navigaciju, izgled/layout i video/animacije) i **funkcionalne** (brzina učitavanja, prilagodljivost/responsiveness, upotrebljivost/usability, SEO optimizacija i kompatibilnost s preglednicima).</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">2. Što je World Wide Web?</div>
-        <div class="answer">World Wide Web (WWW) je sustav međusobno povezanih hipertekstualnih dokumenata koji se prenose putem interneta. Omogućuje pristup web stranicama putem web preglednika koristeći HTTP/HTTPS protokole.</div>
+    <div class="qa-item">
+        <div class="question">2. Što je world wide web?</div>
+        <div class="answer">World Wide Web (WWW ili Web) je informacijski sustav na internetu koji omogućuje međusobno povezivanje dokumenata i drugih resursa putem hiperveza (hyperlinks) i njihovo pregledavanje pomoću web preglednika.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">3. Koja je razlika između hypermedijskih dokumenata i hyperveza?</div>
-        <div class="answer">Hipermedijski dokument je dokument koji sadrži više vrsta medija (tekst, slike, audio, video) povezanih hipervezama. Hiperveza (link) je veza koja vodi od jednog dokumenta do drugog ili unutar istog dokumenta. Dakle, hiperveza je element unutar hipermedijskog dokumenta.</div>
+        <div class="answer">**Hipermedijski dokument** je dokument koji osim teksta sadrži i druge oblike medija (slike, zvukovne zapise, video zapise, animacije). **Hiperveza (hyperlink)** je element unutar takvog dokumenta (riječ, slika, gumb) koji klikom vodi na drugi dokument ili drugi dio istog dokumenta.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">4. Kako radi HTTP?</div>
-        <div class="answer">HTTP (HyperText Transfer Protocol) radi na principu zahtjeva (request) i odgovora (response). Klijent (web preglednik) šalje HTTP zahtjev serveru, server obrađuje zahtjev i vraća HTTP odgovor koji sadrži statusni kod i traženi sadržaj (HTML, slike, itd.).</div>
+    <div class="qa-item">
+        <div class="question">4. Kako radi http?</div>
+        <div class="answer">HTTP (Hypertext Transfer Protocol) radi po principu **klijent-poslužitelj (request-response)**. Klijent (web preglednik) šalje HTTP zahtjev (request) poslužitelju (web serveru), a poslužitelj obrađuje zahtjev i vraća HTTP odgovor (response) koji sadrži zatraženi resurs (npr. HTML stranicu) i statusni kod.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">5. Koja je razlika između HTTPS i HTTP protokola?</div>
-        <div class="answer">HTTPS (HyperText Transfer Protocol Secure) je sigurna verzija HTTP-a koja koristi SSL/TLS enkripciju za zaštitu podataka koji se prenose između klijenta i servera. HTTP prenosi podatke u čistom tekstu, dok HTTPS osigurava povjerljivost i integritet podataka.</div>
+    <div class="qa-item">
+        <div class="question">5. Koja je razlika između https i http protokola?</div>
+        <div class="answer">HTTPS je sigurna (kriptirana) verzija HTTP protokola. Koristi SSL/TLS protokole za enkripciju podataka koji se razmjenjuju između klijenta i poslužitelja, čime se sprječava presretanje i krađa osjetljivih podataka. HTTP prenosi podatke kao običan tekst.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">6. Što je HTTP metoda (method) i koje sve postoje?</div>
-        <div class="answer">HTTP metoda je naredba koja se šalje serveru kako bi se označila željena akcija. Najčešće metode su: GET (dohvat podataka), POST (slanje podataka), PUT (ažuriranje), DELETE (brisanje), HEAD (dohvat zaglavlja), PATCH (djelomično ažuriranje), OPTIONS (dozvoljene metode).</div>
-    </div>
-
-    <div class="qa-block">
-        <div class="question">7. Što predstavljaju HTTP status kodovi (1xx do 5xx)?</div>
-        <div class="answer">
+    <div class="qa-item">
+        <div class="question">6. Što je http metoda (method) i koje sve postoje?</div>
+        <div class="answer">HTTP metoda označava željenu akciju koja se treba izvršiti nad resursom na poslužitelju. Najčešće metode su:
             <ul>
-                <li><strong>1xx (Informacijski):</strong> Zahtjev primljen, nastavlja se proces.</li>
-                <li><strong>2xx (Uspjeh):</strong> Zahtjev uspješno obrađen (npr. 200 OK).</li>
-                <li><strong>3xx (Preusmjeravanje):</strong> Potrebna dodatna akcija za dovršetak zahtjeva (npr. 301 Moved Permanently).</li>
-                <li><strong>4xx (Greška klijenta):</strong> Zahtjev sadrži grešku (npr. 404 Not Found).</li>
-                <li><strong>5xx (Greška servera):</strong> Server nije uspio obraditi zahtjev (npr. 500 Internal Server Error).</li>
+                <li><strong>GET:</strong> Dohvaćanje podataka.</li>
+                <li><strong>POST:</strong> Slanje novih podataka na poslužitelj.</li>
+                <li><strong>PUT:</strong> Ažuriranje postojećih podataka (zamjena).</li>
+                <li><strong>PATCH:</strong> Djelomična izmjena resursa.</li>
+                <li><strong>DELETE:</strong> Brisanje resursa.</li>
             </ul>
         </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
+        <div class="question">7. Što predstavljaju http status kodovi (1xx do 5xx)?</div>
+        <div class="answer">HTTP status kodovi su troznamenkasti brojevi koje poslužitelj vraća klijentu kako bi označio status zahtjeva:
+            <ul>
+                <li><strong>1xx (Informational):</strong> Informativni kodovi (zahtjev zaprimljen, nastavak procesa).</li>
+                <li><strong>2xx (Success):</strong> Uspješno izvršeno (npr. 200 OK).</li>
+                <li><strong>3xx (Redirection):</strong> Preusmjeravanje (npr. 301 Moved Permanently).</li>
+                <li><strong>4xx (Client Error):</strong> Greška klijenta (npr. 404 Not Found, 403 Forbidden).</li>
+                <li><strong>5xx (Server Error):</strong> Greška poslužitelja (npr. 500 Internal Server Error, 502 Bad Gateway).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
         <div class="question">8. Što je URL i od čega se sastoji?</div>
-        <div class="answer">URL (Uniform Resource Locator) je jedinstvena adresa koja identificira lokaciju resursa na internetu. Sastoji se od: protokola (npr. https://), domene (npr. www.example.com), porta (opcionalno), putanje do datoteke (npr. /folder/stranica.html), upitnog niza (query string, npr. ?id=1) i fragmenta (npr. #sekcija).</div>
+        <div class="answer">URL (Uniform Resource Locator) je jedinstvena adresa resursa na internetu. Sastoji se od:
+            <ul>
+                <li><strong>Protokola:</strong> npr. <code>https://</code></li>
+                <li><strong>Domene/Hosta:</strong> npr. <code>www.primjer.hr</code></li>
+                <li><strong>Porta (opcionalno):</strong> npr. <code>:80</code> ili <code>:443</code></li>
+                <li><strong>Putanje (Path):</strong> npr. <code>/proizvodi/index.html</code></li>
+                <li><strong>Upita (Query parameters):</strong> npr. <code>?id=123&sort=asc</code></li>
+                <li><strong>Sidra (Fragment):</strong> npr. <code>#kontakt</code></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">9. Što je web browser?</div>
-        <div class="answer">Web browser (web preglednik) je softver koji omogućuje korisnicima pristup, pretraživanje i prikaz web stranica. Interpretira HTML, CSS i JavaScript te prikazuje web sadržaj. Primjeri: Chrome, Firefox, Safari, Edge.</div>
+        <div class="answer">Web browser (web preglednik) je softverska aplikacija koja korisniku omogućuje pristup, dohvaćanje, interpretaciju i prikazivanje sadržaja s World Wide Web-a.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">10. Koja je razlika između browser enginea i JavaScript enginea?</div>
-        <div class="answer">Browser engine (npr. Blink, Gecko, WebKit) prevodi HTML i CSS u vizualni prikaz na ekranu. JavaScript engine (npr. V8, SpiderMonkey) izvršava JavaScript kod. Browser engine upravlja renderiranjem, dok JavaScript engine upravlja izvršavanjem skripti.</div>
+        <div class="answer">**Browser engine (Rendering engine)** odgovoran je za pretvaranje HTML-a, CSS-a i slika u vizualni prikaz na zaslonu (npr. Blink, Gecko, WebKit). **JavaScript engine** je komponenta koja interpretira i izvršava JavaScript kod unutar preglednika (npr. V8 u Chromeu, SpiderMonkey u Firefoxu).</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">11. Koji su najčešći preglednici koji se koriste?</div>
-        <div class="answer">Google Chrome, Mozilla Firefox, Microsoft Edge, Safari i Opera.</div>
+        <div class="answer">Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge i Opera.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">12. Koja je razlika između aditivnog i subratkivnog modela boje?</div>
-        <div class="answer">Aditivni model (RGB) koristi se za emisiju svjetlosti (ekrani). Miješanjem crvene, zelene i plave dobiva se bijela. Subratkivni model (CMYK) koristi se za ispis na papiru. Miješanjem cijan, magente, žute i crne dobiva se crna.</div>
+        <div class="answer">**Aditivni miješajući model (RGB):** Miješanjem svjetlosti crvene, zelene i plave boje stvara se bijela svjetlost. Koristi se na ekranima i digitalnim uređajima. **Subtraktivni miješajući model (CMYK):** Miješanjem pigmenta (Cijan, Magenta, Žuta, Crna) oduzima se svjetlost, a miješanjem svih primarnih boja dobiva se crna. Koristi se u tisku.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">13. Razlika između heksadekadskog i RGB zapisa boje?</div>
-        <div class="answer">Heksadekadski zapis (npr. #FF0000) koristi 6 znakova (0-9, A-F) za prikaz RGB vrijednosti. RGB zapis (npr. rgb(255, 0, 0)) koristi decimalne vrijednosti od 0 do 255 za svaku komponentu. Oba prikazuju istu boju, ali na različit način.</div>
+        <div class="answer">**RGB zapis** definira udio crvene, zelene i plave boje brojevima u rasponu od 0 do 255 (npr. <code>rgb(255, 0, 0)</code>). **Heksadekadski (HEX) zapis** prikazuje iste te vrijednosti koristeći šesnaesterac sustav (od 00 do FF) ispred kojih stoji znak `#` (npr. <code>#FF0000</code>). Oba zapisa daju identične rezultate na ekranu.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">14. Koje su primarne, a koje sekundarne boje?</div>
-        <div class="answer">Primarne boje (aditivni model): crvena, zelena, plava. Sekundarne boje (aditivni model): cijan (zelena+plava), magenta (crvena+plava), žuta (crvena+zelena). U subratkivnom modelu primarne su cijan, magenta, žuta, a sekundarne crvena, zelena, plava.</div>
+        <div class="answer">U **RGB (svetlosnom/digitalnom)** modelu:
+            <ul>
+                <li><strong>Primarne:</strong> Crvena (Red), Zelena (Green), Plava (Blue).</li>
+                <li><strong>Sekundarne:</strong> Cijan (Cyan), Magenta, Žuta (Yellow).</li>
+            </ul>
+            U klasičnom/likovnom (RYB) modelu: Primarne su crvena, žuta i plava, a sekundarne narančasta, zelena i ljubičasta.
+        </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">15. Koje kategorije fontova postoje?</div>
-        <div class="answer">Serif (npr. Times New Roman), Sans-serif (npr. Arial), Monospace (npr. Courier New), Cursive (npr. Comic Sans), Fantasy (npr. Impact).</div>
+        <div class="answer">Glavne kategorije fontova su:
+            <ul>
+                <li><strong>Serif:</strong> Fontovi s ukrasnim završecima na slovima (npr. Times New Roman).</li>
+                <li><strong>Sans-serif:</strong> Fontovi bez ukrasnih završetaka (npr. Arial, Helvetica, Roboto).</li>
+                <li><strong>Monospace:</strong> Fontovi gdje svi znakovi imaju jednaku širinu (npr. Courier New).</li>
+                <li><strong>Cursive / Script:</strong> Fontovi koji imitiraju rukopis.</li>
+                <li><strong>Display / Decorative:</strong> Dekorativni fontovi za naslove.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">16. Koja je razlika između fonta, font family i glypha?</div>
-        <div class="answer">Font family je skup fontova koji dijele zajednički dizajn (npr. Arial). Font je specifična varijanta unutar obitelji (npr. Arial Bold, Arial Italic). Glyph je pojedinačni vizualni znak unutar fonta (npr. slovo 'A', broj '1').</div>
+        <div class="answer">
+            <ul>
+                <li><strong>Glyph (Glif):</strong> Pojedinačni vizualni prikaz pojedinog znaka (slova, broja, znaka punkcije).</li>
+                <li><strong>Font:</strong> Kolekcija glifova određene težine, stilizacije i veličine (npr. Arial Bold 12pt).</li>
+                <li><strong>Font Family:</strong> Skupina svih povezanih fontova različitih stilova i težina pod jednim imenom (npr. obitelj Arial uključuje Arial Regular, Arial Bold, Arial Italic...).</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">17. Koja je razlika između vektorske i rasterske grafike?</div>
-        <div class="answer">Vektorska grafika koristi matematičke formule (točke, linije, krivulje) za prikaz slike i može se skalirati bez gubitka kvalitete. Rasterska grafika sastoji se od piksela i gubi kvalitetu pri povećanju.</div>
+        <div class="answer">**Rasterska grafika** se sastoji od mreže piksela. Povećanjem gubi na kvaliteti (postaje "pikselizirana"). **Vektorska grafika** se sastoji od matematičkih formula (točaka, linija, krivulja). Može se beskonačno skalirati bez ikakvog gubitka kvalitete.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">18. Koje su prednosti vektorske, a koje rasterske grafike?</div>
-        <div class="answer">Vektorska: beskonačno skaliranje, male datoteke, idealna za logotipe i ikone. Rasterska: bogatstvo detalja, idealna za fotografije, široka podrška.</div>
+        <div class="answer">
+            <ul>
+                <li><strong>Prednosti vektorske grafike:</strong> Neovisnost o rezoluciji (ne gubi kvalitetu povećanjem), manja veličina datoteke za jednostavne oblike, lako uređivanje pojedinih elemenata (npr. logotipi, ikone).</li>
+                <li><strong>Prednosti rasterske grafike:</strong> Mogućnost prikaza iznimno složenih detalja, prijelaza tonova i realističnih fotografija.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">19. Koji se formati datoteka najčešće koriste za spremanje vektorskih, a koji za spremanje rasterskih grafičkih datoteka?</div>
-        <div class="answer">Vektorski: SVG, AI, EPS, PDF. Rasterski: JPEG, PNG, GIF, BMP, TIFF, WebP.</div>
+        <div class="answer">
+            <ul>
+                <li><strong>Vektorski formati:</strong> SVG, AI, EPS, PDF.</li>
+                <li><strong>Rasterski formati:</strong> JPEG/JPG, PNG, GIF, WEBP, TIFF, PSD.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">20. Koji su najčešći strukturni elementi web stranica?</div>
-        <div class="answer">Header, navigacija, glavni sadržaj (main), bočna traka (aside), podnožje (footer), sekcije (section), članci (article).</div>
+        <div class="answer">Najčešći strukturni elementi su: Header (zaglavlje), Navigation (navigacijski izbornik), Main content (glavni sadržaj), Sidebar (bočna traka) i Footer (podnožje).</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">21. Što je wireframing?</div>
-        <div class="answer">Wireframing je proces izrade grubog, pojednostavljenog nacrta web stranice ili aplikacije koji prikazuje raspored elemenata, navigaciju i funkcionalnost bez detalja dizajna (boje, slike).</div>
+        <div class="answer">Wireframing je proces izrade jednostavnog, obično crno-bijelog vizualnog vodiča (skice/kostura) web stranice koji prikazuje strukturu, raspored elemenata i funkcionalnosti bez detaljnog estetskog oblikovanja (boja i slika).</div>
     </div>
 
     <div class="exercise-box">
-        <h3>VJEŽBA: Figma</h3>
-        <p><strong>Zadatak:</strong> Kreirajte novi dokument u Figmi. Dodajte i oblikujte tekst (lorem ipsum). Promijenite font, veličinu, prored i razmak između znakova. Nacrtajte nekoliko vektorskih elemenata. Dodajte im različite obrube i ispune te sjenu. Dodajte sliku. Izvezite elemente kao PNG sliku i spremite ih na računalo. Grupirajte ih te izvezite i spremite grupu elemenata kao PDF na računalo.</p>
-        <p><strong>Rješenje (upute):</strong></p>
+        <div class="exercise-title">VJEŽBA (Uvod i obrada slike - Figma upute):</div>
+        <p>Za rješavanje ove vježbe u Figmi pratite sljedeće korake:</p>
         <ol>
-            <li>Otvorite Figmu i kreirajte novi dizajn file.</li>
-            <li>Odaberite Text tool (T) i nacrtajte tekstualni okvir. Zalijepite Lorem Ipsum tekst.</li>
-            <li>U desnom panelu promijenite font (npr. Inter), veličinu (npr. 16), line-height (npr. 1.5) i letter-spacing (npr. 1px).</li>
-            <li>Koristite Rectangle, Ellipse ili Pen tool za crtanje vektorskih elemenata.</li>
-            <li>Za svaki element u desnom panelu postavite Fill (boja), Stroke (obrub) i Effects (sjena - Drop shadow).</li>
-            <li>Odaberite Frame tool i nacrtajte okvir, zatim povucite sliku u Figmu ili koristite Place Image.</li>
-            <li>Odaberite elemente koje želite izvesti, desni klik > Export > odaberite PNG > Export.</li>
-            <li>Grupirajte elemente (Ctrl+G), desni klik > Export > odaberite PDF > Export.</li>
+            <li>Otvorite <a href="https://www.figma.com" target="_blank">Figma.com</a> i kreirajte novu datoteku (<code>New design file</code>).</li>
+            <li><strong>Tekst:</strong> Odaberite Text alat (tipka <code>T</code>), kliknite na platno i zalijepite Lorem Ipsum tekst. Na desnoj strani pod sekcijom <i>Text</i> promijenite font (npr. Inter), veličinu (npr. 18px), prored (Line Height) i razmak između znakova (Letter Spacing).</li>
+            <li><strong>Vektorski elementi:</strong> Pomoću alata za oblike (tipka <code>R</code> za pravokutnik, <code>O</code> za krug) nacrtajte elemente. U desnom izborniku postavite <i>Fill</i> (boju ispune), <i>Stroke</i> (obrub) te u sekciji <i>Effects</i> kliknite na <code>+</code> i dodajte <i>Drop Shadow</i> (sjenu).</li>
+            <li><strong>Ubacivanje slike:</strong> Pritisnite <code>Ctrl+Shift+K</code> (ili <code>Cmd+Shift+K</code> na Macu) i odaberite sliku s računala te kliknite na platno za ubacivanje.</li>
+            <li><strong>Izvoz elementa (PNG):</strong> Kliknite na pojedinačni element, na dnu desnog izbornika pronađite sekciju <i>Export</i>, odaberite format <code>PNG</code> i kliknite <code>Export [naziv]</code>.</li>
+            <li><strong>Grupiranje i izvoz u PDF:</strong> Selekcijom označite sve elemente (mišom ili tipkom <code>Shift</code>), pritisnite <code>Ctrl+G</code> kako biste stvorili grupu. Unutar sekcije <i>Export</i> odaberite format <code>PDF</code> i kliknite na <code>Export Group</code>.</li>
         </ol>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- TEMA 2: HTML -->
-    <!-- ============================================================ -->
-    <h1>2. HTML</h1>
+    <!-- CJELLINA 2 -->
+    <h2 id="html">2. HTML</h2>
 
-    <div class="qa-block">
-        <div class="question">1. Kakav jezik je HTML (čemu služi)?</div>
-        <div class="answer">HTML (HyperText Markup Language) je jezik za označavanje (markup language), a ne programski jezik. Služi za struktuiranje sadržaja na web stranicama.</div>
+    <div class="qa-item">
+        <div class="question">1. Kakav jezik je html (čemu služi)?</div>
+        <div class="answer">HTML (HyperText Markup Language) je **označiteljski jezik** (markup language), a ne programski jezik. Služi za struktuiranje i opisivanje sadržaja na web stranicama.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">2. Kako se piše HTML, od čega je sastavljen?</div>
-        <div class="answer">HTML se piše pomoću oznaka (tagova) koje se sastoje od početne i završne oznake (npr. &lt;p&gt; &lt;/p&gt;). Sastoji se od elemenata, atributa i sadržaja. Osnovna struktura uključuje &lt;!DOCTYPE html&gt;, &lt;html&gt;, &lt;head&gt; i &lt;body&gt;.</div>
+    <div class="qa-item">
+        <div class="question">2. Kako se piše html, od čega je sastavljen?</div>
+        <div class="answer">HTML se piše pomoću **oznaka (tags)** koje se nalaze unutar šiljastih zagrada. Sastoji se od otvarajuće oznake (npr. <code>&lt;p&gt;</code>), sadržaja i zatvarajuće oznake (npr. <code>&lt;/p&gt;</code>), čineći HTML element. Neki elementi su samozatvarajući (npr. <code>&lt;img /&gt;</code>, <code>&lt;br /&gt;</code>).</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">3. Čemu služe atributi oznake i koje vrste atributa postoje?</div>
-        <div class="answer">Atributi pružaju dodatne informacije o elementu. Postoje globalni atributi (npr. id, class, style) i specifični atributi (npr. href za &lt;a&gt;, src za &lt;img&gt;).</div>
+        <div class="answer">Atributi pružaju dodatne informacije ili konfiguraciju HTML elementima. Pišu se unutar otvarajuće oznake u obliku <code>naziv="vrijednost"</code>. Postoje:
+            <ul>
+                <li><strong>Globalni atributi:</strong> Primenjivi na sve elemente (npr. <code>id</code>, <code>class</code>, <code>style</code>, <code>title</code>).</li>
+                <li><strong>Specifični atributi:</strong> Vrijede za točno određene elemente (npr. <code>href</code> za <code>&lt;a&gt;</code>, <code>src</code> i <code>alt</code> za <code>&lt;img&gt;</code>).</li>
+                <li><strong>Događajni atributi (Event attributes):</strong> npr. <code>onclick</code>, <code>onload</code>.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">4. Što su HTML entiteti?</div>
-        <div class="answer">HTML entiteti su posebni kodovi koji se koriste za prikaz rezerviranih znakova ili znakova koji nisu dostupni na tipkovnici (npr. &amp;lt; za &lt;, &amp;amp; za &amp;, &amp;copy; za ©).</div>
+    <div class="qa-item">
+        <div class="question">4. Što su html entiteti?</div>
+        <div class="answer">HTML entiteti su posebni kodovi koji se koriste za prikaz znakova koji su rezervirani u HTML-u (poput <code>&lt;</code> ili <code>&gt;</code>) ili znakova koji se ne nalaze na standardnoj tipkovnici. Počinju sa <code>&amp;</code> i završavaju sa <code>;</code> (npr. <code>&amp;lt;</code> za <, <code>&amp;gt;</code> za >, <code>&amp;nbsp;</code> za razmak).</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">5. Koje ekstenzije imaju HTML dokumenti?</div>
-        <div class="answer">.html i .htm</div>
+    <div class="qa-item">
+        <div class="question">5. Koje ekstenzije imaju html dokumenti?</div>
+        <div class="answer">Najčešće ekstenzije su <code>.html</code> ili <code>.htm</code>.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">6. Gdje se nalazi sadržaj u HTML elementu?</div>
-        <div class="answer">Sadržaj se nalazi između početne i završne oznake elementa (npr. &lt;p&gt;Ovo je sadržaj&lt;/p&gt;).</div>
+    <div class="qa-item">
+        <div class="question">6. Gdje se nalazi sadržaj u html elementu?</div>
+        <div class="answer">Sadržaj u HTML elementu nalazi se između otvarajuće i zatvarajuće oznake (npr. <code>&lt;p&gt;Ovdje je sadržaj&lt;/p&gt;</code>).</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">7. Što sadrži head dio HTML dokumenta?</div>
-        <div class="answer">Head sadrži metapodatke: naslov dokumenta (&lt;title&gt;), charset, viewport, linkove na CSS datoteke, skripte, meta opise, favicon.</div>
+    <div class="qa-item">
+        <div class="question">7. Što sadrži head dio html dokumenta?</div>
+        <div class="answer">Sadrži **metapodatke** (podatke o samom dokumentu) koji nisu izravno vidljivi na samoj stranici. To uključuje naslov stranice (<code>&lt;title&gt;</code>), skup znakova (<code>&lt;meta charset="UTF-8"&gt;</code>), poveznice na CSS stilove (<code>&lt;link&gt;</code>), skripte (<code>&lt;script&gt;</code>) i meta opis za tražilice.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">8. Što su block elementi? Navedite nekoliko block elemenata.</div>
-        <div class="answer">Block elementi zauzimaju punu širinu i počinju u novom redu. Primjeri: &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;-&lt;h6&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;header&gt;, &lt;footer&gt;, &lt;section&gt;.</div>
+        <div class="answer">Block elementi uvijek započinju u novom redu i zauzimaju čitavu dostupnu širinu spremnika. Primjeri: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code>.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">9. Što su inline elementi? Navedite nekoliko inline elemenata.</div>
-        <div class="answer">Inline elementi zauzimaju samo onoliko širine koliko im je potrebno i ne prekidaju tok teksta. Primjeri: &lt;span&gt;, &lt;a&gt;, &lt;img&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;br&gt;.</div>
+        <div class="answer">Inline elementi ne započinju u novom redu i zauzimaju samo onoliko širine koliko je potrebno za njihov sadržaj. Primjeri: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;label&gt;</code>.</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">10. Koje oznake koristimo za označavanje naslova, paragrafa, slike, poveznice, podebljanog teksta, nakošenog teksta, prekriženog teksta, ubačenog teksta, indeksa i eksponenta?</div>
         <div class="answer">
             <ul>
-                <li>Naslov: &lt;h1&gt; do &lt;h6&gt;</li>
-                <li>Paragraf: &lt;p&gt;</li>
-                <li>Slika: &lt;img&gt;</li>
-                <li>Poveznica: &lt;a&gt;</li>
-                <li>Podebljano: &lt;strong&gt; ili &lt;b&gt;</li>
-                <li>Nakošeno: &lt;em&gt; ili &lt;i&gt;</li>
-                <li>Prekriženo: &lt;del&gt; ili &lt;s&gt;</li>
-                <li>Ubačeno: &lt;ins&gt; ili &lt;u&gt;</li>
-                <li>Indeks: &lt;sub&gt;</li>
-                <li>Eksponent: &lt;sup&gt;</li>
+                <li><strong>Naslovi:</strong> <code>&lt;h1&gt;</code> do <code>&lt;h6&gt;</code></li>
+                <li><strong>Paragraf:</strong> <code>&lt;p&gt;</code></li>
+                <li><strong>Slika:</strong> <code>&lt;img&gt;</code></li>
+                <li><strong>Poveznica:</strong> <code>&lt;a&gt;</code></li>
+                <li><strong>Podebljani tekst:</strong> <code>&lt;strong&gt;</code> ili <code>&lt;b&gt;</code></li>
+                <li><strong>Nakošeni tekst:</strong> <code>&lt;em&gt;</code> ili <code>&lt;i&gt;</code></li>
+                <li><strong>Prekriženi tekst:</strong> <code>&lt;del&gt;</code> ili <code>&lt;s&gt;</code></li>
+                <li><strong>Ubačeni tekst:</strong> <code>&lt;ins&gt;</code></li>
+                <li><strong>Indeks (subscript):</strong> <code>&lt;sub&gt;</code></li>
+                <li><strong>Eksponent (superscript):</strong> <code>&lt;sup&gt;</code></li>
             </ul>
         </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">11. Koje liste postoje u HTML-u? Kako se označavaju liste i njihovi elementi?</div>
-        <div class="answer">Postoje neuređene liste (&lt;ul&gt;), uređene liste (&lt;ol&gt;) i liste opisa (&lt;dl&gt;). Elementi lista: &lt;li&gt; za ul/ol, &lt;dt&gt; za pojam i &lt;dd&gt; za opis.</div>
+    <div class="qa-item">
+        <div class="question">11. Koje liste postoje u html-u? Kako se označavaju liste i njihovi elementi?</div>
+        <div class="answer">
+            <ul>
+                <li><strong>Neuređena lista (Unordered list):</strong> <code>&lt;ul&gt;</code></li>
+                <li><strong>Uređena lista (Ordered list):</strong> <code>&lt;ol&gt;</code></li>
+                <li><strong>Elementi liste:</strong> <code>&lt;li&gt;</code> (unutar <code>&lt;ul&gt;</code> ili <code>&lt;ol&gt;</code>)</li>
+                <li><strong>Opisna/Definicijska lista:</strong> <code>&lt;dl&gt;</code> s pojmovima <code>&lt;dt&gt;</code> i opisima <code>&lt;dd&gt;</code>.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">12. Što su strukturni elementi i čemu služe?</div>
-        <div class="answer">Strukturni elementi služe za definiranje osnovne strukture web stranice. Primjeri: &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;.</div>
+        <div class="answer">Strukturni elementi služe za organizaciju i podjelu rasporeda sadržaja na stranici u logičke cjeline (npr. <code>&lt;div&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>).</div>
     </div>
 
-    <div class="qa-block">
+    <div class="qa-item">
         <div class="question">13. Što su semantički elementi i čemu služe?</div>
-        <div class="answer">Semantički elementi jasno opisuju svoju svrhu i sadržaj, što pomaže pretraživačima i čitačima ekrana. Primjeri: &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;section&gt;, &lt;aside&gt;, &lt;footer&gt;, &lt;figure&gt;, &lt;figcaption&gt;.</div>
+        <div class="answer">Semantički elementi su HTML elementi koji jasno opisuju svoje značenje i poslužitelju i pregledniku i developeru (npr. <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;aside&gt;</code>). Pomažu pristupačnosti (accessibility) i SEO optimizaciji.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">14. Objasni obojane elemente ovog HTML elementa: &lt;a href="https://google.com" target="_blank"&gt;Google&lt;/a&gt;</div>
+    <div class="qa-item">
+        <div class="question">14. Objasni obojane elemente ovog html elementa: &lt;a href="https://google.com" target="_blank"&gt;Google&lt;/a&gt;</div>
         <div class="answer">
             <ul>
-                <li><strong>href</strong> - atribut koji definira URL odredišta poveznice.</li>
-                <li><strong>&lt;a&gt;&lt;/a&gt;</strong> - oznaka za hipervezu (anchor).</li>
-                <li><strong>Google</strong> - tekst koji je vidljiv korisniku i na koji se klikom aktivira poveznica.</li>
-                <li><strong>target</strong> - atribut koji određuje gdje će se otvoriti poveznica. Vrijednosti: _blank (novi tab), _self (isti tab), _parent, _top.</li>
+                <li><code>&lt;a ...&gt;...&lt;/a&gt;</code>: Oznaka za hipervezu (anchor tag).</li>
+                <li><code>href="..."</code>: Atribut koji određuje odredišni URL na koji link vodi.</li>
+                <li><code>target="_blank"</code>: Atribut koji nalaže otvaranje poveznice u novom kartici/prozoru.</li>
+                <li><code>Google</code>: Vidljivi tekst (sidreni tekst / anchor text) na koji korisnik klikne.</li>
             </ul>
         </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">15. Koja je razlika između apsolutne i relativne adrese?</div>
-        <div class="answer">Apsolutna adresa sadrži puni URL (npr. https://www.example.com/stranica.html). Relativna adresa odnosi se na lokaciju relativno u odnosu na trenutnu stranicu (npr. /stranica.html ili ../slika.jpg).</div>
+    <div class="qa-item">
+        <div class="question">15. Što je href i čemu služi?</div>
+        <div class="answer"><code>href</code> (Hypertext Reference) je atribut oznake <code>&lt;a&gt;</code> koji definira ciljnu adresu (URL) poveznice.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">16. Kako se označavaju poveznice na e-mail adresu i na telefonski broj?</div>
-        <div class="answer">
+    <div class="qa-item">
+        <div class="question">16. Što je oznaka „&lt;a&gt;&lt;/a&gt;“?</div>
+        <div class="answer">Oznaka za stvaranje hiperveza (links) prema drugim web stranicama, datotekama, sekcijama ili e-mail/tel adresama.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">17. Što predstavlja „Google“?</div>
+        <div class="answer">Predstavlja vidljivi tekst (sadržaj elementa) koji korisnik vidi na web stranici i na koji može kliknuti.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">18. Čemu služi target atribut i koje vrste vrijednosti target atributa postoje?</div>
+        <div class="answer">Atribut <code>target</code> određuje gdje će se otvoriti povezani dokument. Vrijednosti su:
             <ul>
-                <li>E-mail: &lt;a href="mailto:netko@example.com"&gt;Pošalji email&lt;/a&gt;</li>
-                <li>Telefon: &lt;a href="tel:+38512345678"&gt;Pozovi&lt;/a&gt;</li>
+                <li><code>_self</code>: Otvara u istom prozoru/kartici (zadano).</li>
+                <li><code>_blank</code>: Otvara u novom prozoru ili kartici.</li>
+                <li><code>_parent</code>: Otvara u roditeljskom okviru.</li>
+                <li><code>_top</code>: Otvara u punom tijelu prozora.</li>
             </ul>
         </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">17. Što je sidro?</div>
-        <div class="answer">Sidro (anchor) je poveznica unutar iste stranice koja vodi na određeni dio stranice. Koristi se pomoću atributa id i href="#id".</div>
+    <div class="qa-item">
+        <div class="question">19. Koja je razlika između apsolutne i relativne adrese?</div>
+        <div class="answer">**Apsolutna adresa** sadrži potpunu web adresu uključujući protokol i domenu (npr. <code>https://www.algebra.hr/slika.jpg</code>). **Relativna adresa** pokazuje na datoteku u odnosu na trenutnu lokaciju dokumenta (npr. <code>/slike/slika.jpg</code> ili <code>slika.jpg</code>).</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">18. Pomoću koje oznake dodajemo sliku u HTML? Koje atribute oznaka slike sadrži?</div>
-        <div class="answer">Slika se dodaje pomoću &lt;img&gt; oznake. Obavezni atributi: src (putanja do slike) i alt (alternativni tekst). Ostali: width, height, title, loading.</div>
+    <div class="qa-item">
+        <div class="question">20. Kako se označavaju poveznice na e-mail adresu i na telefonski broj?</div>
+        <div class="answer">
+            <ul>
+                <li><strong>E-mail:</strong> <code>&lt;a href="mailto:ime@domena.hr"&gt;Pošalji mail&lt;/a&gt;</code></li>
+                <li><strong>Telefon:</strong> <code>&lt;a href="tel:+38512345678"&gt;Nazovite nas&lt;/a&gt;</code></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">19. Kako funkcioniraju oznake figure i figcaption?</div>
-        <div class="answer">&lt;figure&gt; služi za grupiranje medijskog sadržaja (slike, dijagrami, kod). &lt;figcaption&gt; dodaje opis ili legendu tom sadržaju. Primjer: &lt;figure&gt;&lt;img src="slika.jpg"&gt;&lt;figcaption&gt;Opis slike&lt;/figcaption&gt;&lt;/figure&gt;.</div>
+    <div class="qa-item">
+        <div class="question">21. Što je sidro?</div>
+        <div class="answer">Sidro (anchor) je poveznica koja korisnika vodi na specifičan dio (element s određenim <code>id</code> atributom) na istoj web stranici (npr. <code>&lt;a href="#vrh"&gt;Natrag na vrh&lt;/a&gt;</code>).</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">20. Kako se označava audio ili video sadržaj?</div>
-        <div class="answer">Audio: &lt;audio controls&gt;&lt;source src="audio.mp3" type="audio/mpeg"&gt;&lt;/audio&gt;. Video: &lt;video controls width="500"&gt;&lt;source src="video.mp4" type="video/mp4"&gt;&lt;/video&gt;.</div>
+    <div class="qa-item">
+        <div class="question">22. Pomoću koje oznake dodajemo sliku u html? Koje atribute oznaka slike sadrži?</div>
+        <div class="answer">Dodaje se pomoću samozatvarajuće oznake <code>&lt;img /&gt;</code>. Glavni atributi su: <code>src</code> (putanja slike), <code>alt</code> (alternativni tekst), <code>width</code> i <code>height</code> (dimenzije).</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">21. Što sadrže HTML tablice? Koje oznake se koriste za tablice, ćelije i redove?</div>
-        <div class="answer">Tablice sadrže retke i ćelije. Oznake: &lt;table&gt; za tablicu, &lt;tr&gt; za redak, &lt;td&gt; za ćeliju, &lt;th&gt; za zaglavlje ćelije, &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; za sekcije.</div>
+    <div class="qa-item">
+        <div class="question">23. Kako funkcioniraju oznake figure i figcaption?</div>
+        <div class="answer"><code>&lt;figure&gt;</code> označava samostalni medijski sadržaj (sliku, dijagram, kod), dok se <code>&lt;figcaption&gt;</code> stavlja unutar <code>&lt;figure&gt;</code> kako bi pružio vidljivi opis ili potpis tog medija.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">22. Pomoću kojih atributa ćelija u tablici se može protezati u više redaka i stupaca?</div>
-        <div class="answer">colspan za spajanje stupaca, rowspan za spajanje redaka.</div>
+    <div class="qa-item">
+        <div class="question">24. Kako se označava audio ili video sadržaj?</div>
+        <div class="answer">Pomoću <code>&lt;audio src="zvuk.mp3" controls&gt;&lt;/audio&gt;</code> i <code>&lt;video src="video.mp4" controls&gt;&lt;/video&gt;</code> oznaka. Unutar njih mogu se koristiti i <code>&lt;source&gt;</code> elementi.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">23. Koje semantičke elemente koristimo za označavanje tablica?</div>
-        <div class="answer">&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;, &lt;caption&gt;, &lt;colgroup&gt;, &lt;col&gt;.</div>
+    <div class="qa-item">
+        <div class="question">25. Što sadrže html tablice? Koje oznake se koriste za tablice, ćelije i redove?</div>
+        <div class="answer">Sadrže podatke organizirane u retke i stupce.
+            <ul>
+                <li><code>&lt;table&gt;</code>: Glavni spremnik tablice.</li>
+                <li><code>&lt;tr&gt;</code>: Redak u tablici (Table Row).</li>
+                <li><code>&lt;td&gt;</code>: Ćelija s podacima (Table Data).</li>
+                <li><code>&lt;th&gt;</code>: Zaglavlje ćelije (Table Header).</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">24. Čemu služi HTML obrazac?</div>
-        <div class="answer">HTML obrazac (form) služi za prikupljanje korisničkih podataka i njihovo slanje na server na obradu.</div>
+    <div class="qa-item">
+        <div class="question">26. Pomoću kojih atributa ćelija u tablici se može protezati u više redaka i stupaca?</div>
+        <div class="answer">
+            <ul>
+                <li><code>colspan="broj"</code>: Spaja više stupaca vodoravno.</li>
+                <li><code>rowspan="broj"</code>: Spaja više redaka okomito.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">25. Koji su najčešći elementi za izradu obrazaca?</div>
-        <div class="answer">&lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, &lt;option&gt;, &lt;button&gt;, &lt;label&gt;, &lt;fieldset&gt;, &lt;legend&gt;.</div>
+    <div class="qa-item">
+        <div class="question">27. Koji semantičke elemente koristimo za označavanje tablica?</div>
+        <div class="answer"><code>&lt;thead&gt;</code> (zaglavlje tablice), <code>&lt;tbody&gt;</code> (tijelo tablice), <code>&lt;tfoot&gt;</code> (podnožje tablice) i <code>&lt;caption&gt;</code> (naslov tablice).</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">26. Čemu služe metapodaci i u kojem dijelu HTML dokumenta se nalaze?</div>
-        <div class="answer">Metapodaci pružaju informacije o dokumentu (opis, ključne riječi, autor, charset). Nalaze se unutar &lt;head&gt; elementa.</div>
+    <div class="qa-item">
+        <div class="question">28. Čemu služi html obrazac?</div>
+        <div class="answer">HTML obrazac (<code>&lt;form&gt;</code>) služi za prikupljanje unosa od korisnika i slanje tih podataka na poslužitelj na daljnju obradu.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">27. Koji su najčešće korišteni metapodaci?</div>
-        <div class="answer">charset, viewport, description, keywords, author, robots.</div>
+    <div class="qa-item">
+        <div class="question">29. Koji su najčešći elementi za izradu obrazaca?</div>
+        <div class="answer"><code>&lt;input&gt;</code> (razni tipovi: text, password, email, checkbox, radio, submit), <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code> i <code>&lt;option&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;label&gt;</code>.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">28. Čemu služi "id" atribut unutar HTML oznake?</div>
-        <div class="answer">id atribut jedinstveno identificira element na stranici. Koristi se za CSS stiliziranje, JavaScript manipulaciju i sidrišta.</div>
+    <div class="qa-item">
+        <div class="question">30. Čemu služe metapodaci i u kojem dijelu html dokumenta se nalaze?</div>
+        <div class="answer">Metapodaci pružaju informacije o HTML dokumentu (npr. kodna stranica, opis, ključne riječi, autor, postavke prikaza). Nalaze se unutar <code>&lt;head&gt;</code> dijela dokumenta.</div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">29. Čemu služi "action" atribut unutar oznake "form"?</div>
-        <div class="answer">action atribut definira URL na koji će se poslati podaci iz obrasca nakon slanja.</div>
+    <div class="qa-item">
+        <div class="question">31. Koji su najčešće korišteni metapodaci?</div>
+        <div class="answer">
+            <ul>
+                <li><code>&lt;meta charset="UTF-8"&gt;</code></li>
+                <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></li>
+                <li><code>&lt;meta name="description" content="..."&gt;</code></li>
+                <li><code>&lt;meta name="keywords" content="..."&gt;</code></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="qa-block">
-        <div class="question">30. Čemu služi "alt" atribut unutar oznake "img"?</div>
-        <div class="answer">alt atribut pruža alternativni tekst koji se prikazuje ako slika ne može biti učitana. Također je važan za pristupačnost i SEO.</div>
+    <div class="qa-item">
+        <div class="question">32. Čemu služi „id“ atribut unutar html oznake?</div>
+        <div class="answer">Služi za dodjelu **jedinstvenog identifikatora** HTML elementu na stranici. Koristi se za CSS stiliziranje, povezivanje unutar sidra te dohvaćanje elementa putem JavaScripta.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">33. Čemu služi „action“ atribut unutar oznake „form“?</div>
+        <div class="answer">Određuje URL adresu poslužitelja/skripte kamo se podaci iz obrasca šalju nakon što korisnik klikne na gumb za slanje.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">34. Čemu služi „alt“ atribut unutar oznake „img“?</div>
+        <div class="answer">Pruža zamjenski tekst ako se slika ne uspije učitati. Ključan je za čitače ekrana koje koriste slabovidne osobe te za SEO optimizaciju.</div>
     </div>
 
     <div class="exercise-box">
-        <h3>VJEŽBA: HTML dokument sa sidrima, tablicom, video i formom</h3>
-        <p><strong>Zadatak:</strong> Kreirajte standardnu strukturu HTML dokumenta. Dodajte metapodatke u head dio (naslov dokumenta, charset, viewport). U body dio dodajte naslov razine 1 „Moj HTML dokument“. Nakon tog naslova dodajte listu koja će sadržavati sidra na pojedine naslove razine 2, 3 i 4 niže u dokumentu. Zatim dodajte tablicu prema uputama, video, formu i kontakt poveznice.</p>
-        <p><strong>Rješenje (HTML kod):</strong></p>
+        <div class="exercise-title">VJEŽBA (HTML Zadatak kod):</div>
+        <p>Ispod se nalazi potpuni kod zadatka. Kopirajte ga u vaš Visual Studio Code kao <code>vjezba_html.html</code>:</p>
         <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="hr"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Moj HTML dokument&lt;/title&gt;
+    &lt;title&gt;Moj HTML Dokument - Vježba&lt;/title&gt;
 &lt;/head&gt;
-&lt;body&gt;
+&lt;body id="vrh"&gt;
 
-    &lt;h1 id="vrh"&gt;Moj HTML dokument&lt;/h1&gt;
+    &lt;h1&gt;Moj HTML dokument&lt;/h1&gt;
 
+    &lt;!-- Lista sa sidranim poveznica --&gt;
     &lt;ul&gt;
-        &lt;li&gt;&lt;a href="#naslov2"&gt;Naslov razine 2&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#naslov3"&gt;Naslov razine 3&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#naslov4"&gt;Naslov razine 4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tablica-sekcija"&gt;Idi na HTML Tablicu (H2)&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#video-sekcija"&gt;Idi na HTML Video (H3)&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#forma-sekcija"&gt;Idi na HTML Formu (H3)&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#kontakt-sekcija"&gt;Idi na Kontakt (H4)&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h2 id="naslov2"&gt;Naslov razine 2&lt;/h2&gt;
-    &lt;p&gt;Ovo je sadržaj naslova razine 2.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+    &lt;p&gt;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
 
-    &lt;h3 id="naslov3"&gt;Naslov razine 3&lt;/h3&gt;
-    &lt;p&gt;Ovo je sadržaj naslova razine 3.&lt;/p&gt;
+    &lt;img src="https://via.placeholder.com/300" alt="Slikovni prikaz 1"&gt;
+    &lt;img src="https://via.placeholder.com/350" alt="Slikovni prikaz 2"&gt;
 
-    &lt;h4 id="naslov4"&gt;Naslov razine 4&lt;/h4&gt;
-    &lt;p&gt;Ovo je sadržaj naslova razine 4.&lt;/p&gt;
-
-    &lt;h2&gt;Tablica&lt;/h2&gt;
+    &lt;h2 id="tablica-sekcija"&gt;Moja HTML tablica&lt;/h2&gt;
     &lt;table border="1"&gt;
         &lt;tr&gt;
             &lt;td&gt;Prva&lt;/td&gt;
             &lt;td colspan="2"&gt;Druga i treća&lt;/td&gt;
-            &lt;td&gt;Četvrta&lt;/td&gt;
-            &lt;td&gt;
+            &lt;td colspan="2"&gt;Četvrta&lt;/td&gt;
+            &lt;td colspan="2"&gt;Peta&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Prva&lt;/td&gt;
+            &lt;td&gt;Druga i druga&lt;/td&gt;
+            &lt;td colspan="2"&gt;Treća&lt;/td&gt;
+            &lt;td colspan="2"&gt;Četvrta&lt;/td&gt;
+            &lt;td&gt;Peta&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Prva&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td colspan="2"&gt;Treća&lt;/td&gt;
+            &lt;td colspan="3"&gt;Četvrta i peta i četvrta i peta&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="3"&gt;Prva, druga i treća&lt;/td&gt;
+            &lt;td colspan="4"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+
+    &lt;h3 id="video-sekcija"&gt;Moj HTML video&lt;/h3&gt;
+    &lt;video controls width="400"&gt;
+        &lt;source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"&gt;
+        Vaš preglednik ne podržava video element.
+    &lt;/video&gt;
+
+    &lt;h3 id="forma-sekcija"&gt;Moja HTML forma&lt;/h3&gt;
+    &lt;form action="#" method="post"&gt;
+        &lt;div&gt;
+            &lt;label for="ime"&gt;Ime:&lt;/label&gt;
+            &lt;input type="text" id="ime" name="ime"&gt;
+        &lt;/div&gt;&lt;br&gt;
+        &lt;div&gt;
+            &lt;label for="prezime"&gt;Prezime:&lt;/label&gt;
+            &lt;input type="text" id="prezime" name="prezime"&gt;
+        &lt;/div&gt;&lt;br&gt;
+        &lt;div&gt;
+            &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email"&gt;
+        &lt;/div&gt;&lt;br&gt;
+        &lt;div&gt;
+            &lt;label for="poruka"&gt;Poruka:&lt;/label&gt;
+            &lt;textarea id="poruka" name="poruka" rows="4"&gt;&lt;/textarea&gt;
+        &lt;/div&gt;&lt;br&gt;
+        &lt;div&gt;
+            &lt;label for="izbor"&gt;Odaberite opciju:&lt;/label&gt;
+            &lt;select id="izbor" name="izbor"&gt;
+                &lt;option value="opcija1"&gt;Opcija 1&lt;/option&gt;
+                &lt;option value="opcija2"&gt;Opcija 2&lt;/option&gt;
+                &lt;option value="opcija3"&gt;Opcija 3&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;&lt;br&gt;
+        &lt;div&gt;
+            &lt;input type="checkbox" id="prihvatisuvjet" name="uvjeti"&gt;
+            &lt;label for="prihvatisuvjet"&gt;Prihvaćam uvjete&lt;/label&gt;
+        &lt;/div&gt;&lt;br&gt;
+        &lt;button type="submit"&gt;Pošalji&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;h4 id="kontakt-sekcija"&gt;Kontakt&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="https://www.algebra.hr" target="_blank"&gt;Algebra&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="mailto:korisnik@algebra.hr"&gt;Pošalji e-mail&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="tel:+38512345678"&gt;+385 1 234 5678&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;br&gt;&lt;br&gt;
+    &lt;a href="#vrh"&gt;Povratak na vrh stranice&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- CJELLINA 3 -->
+    <h2 id="css">3. CSS</h2>
+
+    <div class="qa-item">
+        <div class="question">1. Je li css programski jezik (ako ne, koji je)?</div>
+        <div class="answer">CSS nije programski jezik. On je **stilski jezik** (Cascading Style Sheets).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">2. Čemu služi stilski jezik?</div>
+        <div class="answer">Služi za opisivanje vizualnog prikaza i stiliziranje elemenata napisanih u označiteljskom jeziku (poput HTML-a).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">3. Što su liste stilskih pravila?</div>
+        <div class="answer">To je niz CSS pravila pri čemu svako pravilo sadrži selektor i blok deklaracija (svojstva i vrijednosti) koji definiraju izgled označenih elemenata.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">4. Što znači kaskadna primjena stilskih pravila?</div>
+        <div class="answer">Podrazumijeva hijerarhijski sustav određivanja prednosti stila kada se na jedan element odnosi više pravila. Prednost ovisi o izvoru stila, specifičnosti selektora i redoslijedu pisanja koda (kasnije navedeno pravilo prebriše ranije ako su iste specifičnosti).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">5. Kako se piše css pravilo? Kako odvajamo više css svojstava u istom pravilu?</div>
+        <div class="answer">CSS pravilo sastoji se od selektora i bloka deklaracija unutar vitičastih zagrada: <code>selektor { svojstvo: vrijednost; }</code>. Više svojstava odvajamo **točkom i zarezom (;)**.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">6. Koju ekstenziju imaju css datoteke?</div>
+        <div class="answer">Ekstenzija je <code>.css</code>.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">7. Koja su 3 načina na koje možemo povezati i pisati css pravila u html dokumentu?</div>
+        <div class="answer">
+            <ul>
+                <li><strong>Vanjski (External):</strong> Povezivanjem <code>.css</code> datoteke putem <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>.</li>
+                <li><strong>Unutarnji (Internal):</strong> Unutar <code>&lt;style&gt;</code> oznake u <code>&lt;head&gt;</code> dijelu HTML-a.</li>
+                <li><strong>Linijski (Inline):</strong> Izravno na HTML elementu putem atributa <code>style="..."</code>.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">8. Kako ćemo napisati pravilo koje se odnosi na sve html oznake?</div>
+        <div class="answer">Koristeći univerzalni selektor (zvjezdicu): <code>* { ... }</code>.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">9. Kako ćemo napisati pravilo koje se odnosi specifičnu html oznaku?</div>
+        <div class="answer">Navođenjem imena te oznake kao selektora (npr. <code>p { color: red; }</code>).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">10. Kako ćemo napisati pravilo koje se odnosi na oznaku sa određenim identifikatorom?</div>
+        <div class="answer">Koristeći znak `#` ispred naziva identifikatora (npr. <code>#mojID { ... }</code>).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">11. Kako ćemo napisati pravilo koje se odnosi na sve html koje sadrže klasu „mojaklasa“?</div>
+        <div class="answer">Koristeći točku `.` ispred naziva klase: <code>.mojaklasa { ... }</code>.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">12. Čemu služi selektor pseudo klase?</div>
+        <div class="answer">Služi za definiranje posebnog stanja elementa (npr. kada korisnik prijeđe mišem preko njega, kada je poveznica posjećena ili kada je element u fokusu).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">13. Što omogućava pseudo klasa „hover“?</div>
+        <div class="answer">Omogućava primjenu stilova na element u trenutku kada korisnik prijeđe pokazivačem miša iznad njega (<code>:hover</code>).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">14. Što su css kombinatori?</div>
+        <div class="answer">Kombinatori objašnjavaju odnos između selektora (npr. potomak, izravno dijete, susjedni element).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">15. Na koje elemente s odnosi navedeni css selektori: „div span“?</div>
+        <div class="answer">Na **sve** <code>&lt;span&gt;</code> elemente koji se nalaze unutar <code>&lt;div&gt;</code> elementa (bez obzira na razinu ugniježđenosti - potomački selektor).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">16. Na koje elemente s odnosi navedeni css selektori: „div > span“?</div>
+        <div class="answer">Samo na <code>&lt;span&gt;</code> elemente koji su **izravna djeca** (first-level children) navedenog <code>&lt;div&gt;</code> elementa.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">17. Na koje elemente s odnosi navedeni css selektori: „div + span“?</div>
+        <div class="answer">Na <code>&lt;span&gt;</code> element koji se nalazi **neposredno iza** <code>&lt;div&gt;</code> elementa (prvi sljedeći bratski element).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">18. Na koje elemente s odnosi navedeni css selektori: „div ~ span“?</div>
+        <div class="answer">Na **sve** <code>&lt;span&gt;</code> elemente koji dolaze **nakon** <code>&lt;div&gt;</code> elementa i dijele istog roditelja (svi opći bratski elementi).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">19. Kako možemo grupirati više selektora u jedno pravilo te im zadati ista css svojstva?</div>
+        <div class="answer">Odvajanjem selektora **zarezom** (npr. <code>h1, h2, p { color: blue; }</code>).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">20. Koja svojstva koristimo za promjenu obitelji fonta, debljine fonta i veličine fonta?</div>
+        <div class="answer">
+            <ul>
+                <li>Obitelj fonta: <code>font-family</code></li>
+                <li>Debljina fonta: <code>font-weight</code></li>
+                <li>Veličina fonta: <code>font-size</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">21. Koja svojstva koristimo za postavljanje boje teksta i boje pozadine?</div>
+        <div class="answer">Boja teksta: <code>color</code>. Boja pozadine: <code>background-color</code>.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">22. Kako možemo postaviti da se za pozadinu div elemenata koristi slika koja se ponavlja u x smjeru?</div>
+        <div class="answer">
+            <code>div { background-image: url('slika.jpg'); background-repeat: repeat-x; }</code>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">23. Što je box model?</div>
+        <div class="answer">Box model (model kutije) je koncept u CSS-u po kojem se svaki HTML element promatra kao pravokutna kutija sastavljena od 4 dijela: **Content** (sadržaj), **Padding** (unutarnja ispuna), **Border** (obrub) i **Margin** (vanjska margina).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">24. Koja je razlika između box-sizing:border-box i box-sizing:content-box svojstava?</div>
+        <div class="answer">
+            <ul>
+                <li><code>content-box</code> (zadano): Ukupna širina/visina izračunava se dodavanjem paddinga i bordera na zadanu širinu (Širina + Padding + Border).</li>
+                <li><code>border-box</code>: Zadana širina i visina već uključuju padding i border unutar definiranih dimenzija.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">25. Koja je razlika između position:relative, position:absolute, position:static i position:fixed?</div>
+        <div class="answer">
+            <ul>
+                <li><code>static</code>: Zadani položaj prateći normalan tijek dokumenta.</li>
+                <li><code>relative</code>: Pozicionira se relativno u odnosu na svoj prirodni položaj.</li>
+                <li><code>absolute</code>: Pozicionira se apsolutno u odnosu na najbliži pozicionirani pretka (roditelja koji nema static).</li>
+                <li><code>fixed</code>: Pozicionira se u odnosu na prozor preglednika i ostaje fiksiran prilikom skrolanja.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">26. Kako možemo poravnati sliku lijevo od teksta?</div>
+        <div class="answer">Koristeći svojstvo <code>float: left;</code> na slici ili korištenjem CSS Flexbox rasporeda.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">27. Koji je najčešće korišteni layout?</div>
+        <div class="answer">Moderni i najčešće korišteni layout sustavi su **Flexbox** i **CSS Grid**.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">28. Koje transformacije postoje?</div>
+        <div class="answer">Transformacije uključuju: <code>translate()</code> (pomicanje), <code>rotate()</code> (rotacija), <code>scale()</code> (skaliranje/povećanje), <code>skew()</code> (iskretanje) te 3D verzije istih.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">29. Što su css tranzicije?</div>
+        <div class="answer">CSS tranzicije omogućuju gladak prijelaz promjene vrijednosti CSS svojstava kroz određeno vremensko trajanje (npr. promjena boje gumba na hover).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">30. Čemu služe css animacije?</div>
+        <div class="answer">Služe za izradu složenih animacijskih sekvenci pomoću <code>@keyframes</code> pravila koja definiraju stilove u različitim vremenskim točkama.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">31. Zašto koristimo css varijable?</div>
+        <div class="answer">Koristimo ih za pohranu ponovno upotrebljivih vrijednosti (npr. boje, fontovi) na jednom mjestu, što olakšava održavanje koda i omogućuje dinamiku (npr. dark mode).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">32. Kako deklariramo css varijablu, a kako ju pozivamo?</div>
+        <div class="answer">
+            <ul>
+                <li>Deklaracija (obično unutar <code>:root</code>): <code>--glavna-boja: #ff0000;</code></li>
+                <li>Poziv: <code>color: var(--glavna-boja);</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">33. Što omogućavaju css media queries?</div>
+        <div class="answer">Omogućavaju primjenu različitih stilova ovisno o svojstvima uređaja, kao što su širina ekrana (responzivni dizajn za mobitele, tablete, računala).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">34. Kako primijeniti neke stilove na element koji ima klasu „div1“ i identifikator „mojID“?</div>
+        <div class="answer">Spajanjem bez razmaka: <code>.div1#mojID { ... }</code> ili <code>#mojID.div1 { ... }</code>.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">35. Ako stilove primjenjujemo na element pomoću #oznaka, tada „oznaka“ na elementu se stavlja kao vrijednost kojeg atributa?</div>
+        <div class="answer">Vrijednost atributa <code>id</code> (npr. <code>&lt;div id="oznaka"&gt;</code>).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">36. Gdje će se i kako primijeniti ispune ako napišemo ovako: „padding: 0 10px 15px 0“?</div>
+        <div class="answer">Pratimo smjer kazaljke na satu (Gore, Desno, Dolje, Lijevo):
+            <ul>
+                <li><strong>Gore (Top):</strong> 0px</li>
+                <li><strong>Desno (Right):</strong> 10px</li>
+                <li><strong>Dolje (Bottom):</strong> 15px</li>
+                <li><strong>Lijevo (Left):</strong> 0px</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">37. Kako pišemo linijski css, pomoću kojeg atributa?</div>
+        <div class="answer">Pišemo ga pomoću atributa <code>style</code> unutar otvarajuće HTML oznake (npr. <code>&lt;p style="color: blue;"&gt;</code>).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">38. Kako pišemo unutarnji (internal) css?</div>
+        <div class="answer">Unutar <code>&lt;style&gt;</code> oznaka u <code>&lt;head&gt;</code> dijelu HTML dokumenta.</div>
+    </div>
+
+    <div class="exercise-box">
+        <div class="exercise-title">VJEŽBA (CSS Osnovni Zadatak):</div>
+        <p>Za ovu vježbu izradite dvije datoteke. Spremite sliku pod nazivom <code>slika.jpg</code> u istu mapu.</p>
+        
+        <p><strong>1. index.html</strong></p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="hr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;CSS Vježba&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Glavni Naslov&lt;/h1&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.&lt;/p&gt;
+    
+    &lt;img src="slika.jpg" alt="Moja Slika" class="moja-slika"&gt;
+
+    &lt;div class="div1"&gt;Sadržaj Div 1&lt;/div&gt;
+    &lt;div class="div2"&gt;Sadržaj Div 2&lt;/div&gt;
+    &lt;div class="div3"&gt;Sadržaj Div 3&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p><strong>2. style.css</strong></p>
+        <pre><code>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 24px;
+}
+
+p {
+    margin: 10px 15px 10px 15px; /* gore desno dolje lijevo */
+}
+
+.moja-slika {
+    width: 500px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Klase div1 i div2 sa zajedničkim i specifičnim stilovima */
+.div1, .div2 {
+    width: 160px;
+    height: 160px;
+    background-color: purple;
+    border: 2px solid yellow;
+    margin: 10px;
+    padding: 15px;
+}
+
+.div1 {
+    box-sizing: content-box;
+}
+
+.div2 {
+    box-sizing: border-box;
+    background-image: url('slika.jpg');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Klasa div3 */
+.div3 {
+    width: 300px;
+    height: 120px;
+    background: linear-gradient(to right, red, blue);
+    border: 1px solid black;
+    padding: 10px;
+}</code></pre>
+    </div>
+
+    <div class="exercise-box">
+        <div class="exercise-title">PRIMJER PARCIJALNI ISPIT (CSS Layout Zadatak):</div>
+        <p>Rješenje za parcijalni ispit prema slici i zahtjevima (širina 1060px, raspored 4/5 i 1/5):</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Parcijalni Ispit Template&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #999;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 1060px;
+            background-color: #fff;
+        }
+
+        /* Header */
+        header {
+            background-color: #999;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 50px;
+            font-style: italic;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* Navigacija */
+        nav {
+            background-color: #ff66ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .nav-links a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .search-form input[type="text"] {
+            padding: 5px;
+        }
+
+        .search-form button {
+            padding: 5px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Glavni raspored */
+        .main-wrapper {
+            display: flex;
+            width: 100%;
+        }
+
+        .content {
+            width: 80%; /* 4/5 širine */
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .content h1, .content h2 {
+            font-style: italic;
+            font-family: serif;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .sidebar {
+            width: 20%; /* 1/5 širine */
+            background-color: #ff80ff;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            font-style: italic;
+            font-family: serif;
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .sidebar li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            color: blue;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 15px 20px;
+            border-top: 2px solid #ccc;
+            font-size: 14px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="container"&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Header&lt;/h1&gt;
+        &lt;/header&gt;
+
+        &lt;nav&gt;
+            &lt;div class="nav-links"&gt;
+                &lt;a href="#"&gt;HOME&lt;/a&gt;
+                &lt;a href="#"&gt;OUR TEAM&lt;/a&gt;
+                &lt;a href="#"&gt;PROJECTS&lt;/a&gt;
+                &lt;a href="#"&gt;CONTACT&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;form class="search-form"&gt;
+                &lt;input type="text" placeholder="Search query"&gt;
+                &lt;button type="submit"&gt;Go!&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/nav&gt;
+
+        &lt;div class="main-wrapper"&gt;
+            &lt;main class="content"&gt;
+                &lt;h1&gt;Article heading&lt;/h1&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit.&lt;/p&gt;
+
+                &lt;h2&gt;subsection&lt;/h2&gt;
+                &lt;p&gt;Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+                &lt;p&gt;Pelientesque auctor nisi id magna consequat sagittis. Curabitur dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet.&lt;/p&gt;
+
+                &lt;h2&gt;Another subsection&lt;/h2&gt;
+                &lt;p&gt;Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et manis dis parturient montes, nascetur ridiculus mus.&lt;/p&gt;
+            &lt;/main&gt;
+
+            &lt;aside class="sidebar"&gt;
+                &lt;h2&gt;Related&lt;/h2&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Oh I do like to be beside the seaside&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Oh I do like to be beside the sea&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Although in the North of England&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;It never stops raining&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Oh well...&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/aside&gt;
+        &lt;/div&gt;
+
+        &lt;footer&gt;
+            &amp;copy;Copyright 2050 by nobody. All rights reversed.
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- CJELLINA 4 -->
+    <h2 id="wordpress">4. WORDPRESS I SEO</h2>
+
+    <div class="qa-item">
+        <div class="question">1. Što je to php?</div>
+        <div class="answer">PHP (Hypertext Preprocessor) je široko korišteni open-source **skriptni jezik na strani poslužitelja (server-side)** namijenjen prvenstveno izradi dinamičnih web stranica.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">2. Nabroji 5 tehnologija koje koristi Wordpress.</div>
+        <div class="answer">
+            1. PHP<br>
+            2. MySQL (ili MariaDB)<br>
+            3. HTML<br>
+            4. CSS<br>
+            5. JavaScript
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">3. Što je CMS?</div>
+        <div class="answer">CMS (Content Management System) je sustav za upravljanje sadržajem koji korisnicima omogućuje izradu, uređivanje, organizaciju i objavljivanje digitalnog sadržaja na webu bez potrebe za naprednim programerskim znanjem.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">4. Koje vrste CMS-a postoje?</div>
+        <div class="answer">
+            <ul>
+                <li><strong>Tradicionalni (Monolitni) CMS:</strong> Povezuje backend i frontend (npr. WordPress, Joomla, Drupal).</li>
+                <li><strong>Headless CMS:</strong> Upravlja samo sadržajem na backendu, a frontend se dohvaća putem API-ja (npr. Strapi, Contentful).</li>
+                <li><strong>Decoupled CMS:</strong> Arhitektura gdje su frontend i backend odvojeni, ali CMS pruža pripremljene alate za oboje.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">5. Najbroji neke od postojećih CMS sustava?</div>
+        <div class="answer">WordPress, Joomla, Drupal, Webflow, Ghost, Craft CMS.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">6. Nabroji neke od najkorištenijih e-commerce sustava?</div>
+        <div class="answer">WooCommerce (za WordPress), Shopify, Magento (Adobe Commerce), PrestaShop, OpenCart.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">7. Koliko košta Wordpress?</div>
+        <div class="answer">Sam softver WordPress (sa stranice WordPress.org) je potpuno **besplatan** i otvorenog koda (Open Source). Troškovi nastaju za web domenu, hosting te opcionalno za plaćene teme i dodatke.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">8. Što su dodaci (plugins) za Wordpress?</div>
+        <div class="answer">Dodaci su softverski moduli koji se instaliraju unutar WordPressa kako bi proširili njegove osnovne funkcionalnosti (npr. dodavanje kontakt forme, SEO alata, web shopa).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">9. Što je MySQL?</div>
+        <div class="answer">MySQL je popularni relacijski sustav za upravljanje bazama podataka (RDBMS) koji koristi SQL jezik za pohranu i dohvaćanje podataka. Koristi ga WordPress za pohranu svih članaka, stranica i postavki.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">10. Što je hosting?</div>
+        <div class="answer">Web hosting je usluga zakupljivanja prostora na poslužitelju (serveru) spojenom na internet kako bi vaša web stranica bila dostupna posjetiteljima 24/7.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">11. Što je Wordpress tema?</div>
+        <div class="answer">WordPress tema je skup datoteka (predložaka, stilova i skripti) koje definiraju vizualni izgled, dizajn i strukturu prikaza vaše web stranice.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">12. Ako promijenimo temu što će se dogoditi s postojećim sadržajem?</div>
+        <div class="answer">Sam sadržaj (tekstovi članaka, stranice, komentari, baze podataka) **ostaje sačuvan**, ali će se promijeniti njegov vizualni prikaz i stil. Neke funkcionalnosti specifične za staru temu mogu prestati raditi.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">13. Nabrojite neke od najčešće korištenih datoteka predložaka u temi?</div>
+        <div class="answer">
+            <ul>
+                <li><code>index.php</code> (glavna datoteka)</li>
+                <li><code>style.css</code> (glavni stil)</li>
+                <li><code>header.php</code> (zaglavlje)</li>
+                <li><code>footer.php</code> (podnožje)</li>
+                <li><code>sidebar.php</code> (bočna traka)</li>
+                <li><code>single.php</code> (prikaz pojedinačne objave)</li>
+                <li><code>page.php</code> (prikaz pojedinačne stranice)</li>
+                <li><code>functions.php</code> (funkcije teme)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">14. Postoji li ograničenje koliko datoteka smiju koristiti predlošci teme Wordpressa?</div>
+        <div class="answer">Ne postoji strogo ograničenje; tema mora imati minimalno <code>index.php</code> i <code>style.css</code>, ali može sadržavati neograničen broj predložaka ovisno o potrebama razvoja.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">15. Koje vrste upita postoje?</div>
+        <div class="answer">
+            <ul>
+                <li><strong>Informacijski (Informational):</strong> Korisnik traži informacije (npr. "kako se radi kolač").</li>
+                <li><strong>Navigacijski (Navigational):</strong> Korisnik traži određenu stranicu (npr. "Facebook login").</li>
+                <li><strong>Transakcijski (Transactional):</strong> Korisnik želi obaviti kupnju ili akciju (npr. "kupiti iPhone 15").</li>
+                <li><strong>Komercijalni (Commercial investigation):</strong> Korisnik istražuje prije kupnje (npr. "najbolji mobiteli 2024").</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">16. „Hotels in Zagreb“ je kakva vrsta upita?</div>
+        <div class="answer">To je **komercijalni/transakcijski** upit s lokalnom namjerom (Local / Commercial Intent).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">17. „Buy guitar online“ je kakva vrsta upita?</div>
+        <div class="answer">To je **transakcijski upit** (kupovna namjera).</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">18. Što obuhvaća SEO?</div>
+        <div class="answer">SEO (Search Engine Optimization) obuhvaća skup strategija za optimizaciju web stranice kako bi se poboljšala njena vidljivost na tražilicama. Dijeli se na:
+            <ul>
+                <li><strong>On-Page SEO:</strong> Optimizacija sadržaja, naslova, meta oznaka, strukture URL-a.</li>
+                <li><strong>Off-Page SEO:</strong> Izgradnja povratnih poveznica (backlinks) i reputacije.</li>
+                <li><strong>Tehnički SEO:</strong> Brzina učitavanja, indeksiranje, responzivnost, sigurnost (HTTPS), sitemap.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">19. Što je SERP i koji su mu elementi?</div>
+        <div class="answer">SERP (Search Engine Results Page) je stranica s rezultatima pretraživanja koju tražilica prikazuje nakon upita. Elementi uključuju: organske rezultate (naslov, URL, meta opis), plaćene oglase (PPC), Featured Snippets, Google Maps blok, slike i povezana pitanja.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">20. Što tražilice sve vide na stranici sadržaja?</div>
+        <div class="answer">Tražilice ("pauci" ili crawleri) vide HTML kod, tekstualni sadržaj, strukturu oznaka (H1-H6), URL-ove, alt tekstove slika, meta podatke, interne i vanjske poveznice. Ne vide slike i videozapise kao ljudi, već se oslanjaju na tekstualne opise.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">21. U pogledu SEO-a, kakav upit je bolji: https://example.com/guitars/fender/jaguar ili https://example.com/category=guitar/product=fender.jag i zašto?</div>
+        <div class="answer">Znatno je bolji prvi URL (<code>https://example.com/guitars/fender/jaguar</code>) jer je **"User-friendly" i "SEO-friendly"**. Sadrži jasnu hijerarhiju i ključne riječi koje tražilice i korisnici odmah razumiju, za razliku od drugog koji koristi nejasne parametre.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">22. Koliko bi znakova trebao imati &lt;title&gt;, a koliko &lt;meta name="description"…&gt;?</div>
+        <div class="answer">
+            <ul>
+                <li><strong>&lt;title&gt;:</strong> Između 50 i 60 znakova.</li>
+                <li><strong>&lt;meta name="description"&gt;:</strong> Između 150 i 160 znakova.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">23. Čemu služi sitemap.xml?</div>
+        <div class="answer"><code>sitemap.xml</code> je XML datoteka koja popisuje sve važne stranice i resurse na web lokaciji, pomažući tražilicama da brže i lakše pronađu, indeksiraju i razumiju strukturu web stranice.</div>
+    </div>
+
+    <div class="qa-item">
+        <div class="question">24. Čemu služi robots.txt?</div>
+        <div class="answer"><code>robots.txt</code> je tekstualna datoteka smještena u korijenskom direktoriju web stranice koja daje upute web crawlerima (botovima) koje dijelove stranice smiju, a koje ne smiju posjećivati i indeksirati.</div>
+    </div>
+
+    <div class="exercise-box">
+        <div class="exercise-title">VJEŽBA (WordPress i SEO praktični koraci):</div>
+        <ol>
+            <li><strong>cPanel i Instalacija:</strong>
+                <ul>
+                    <li>Prijavite se u cPanel, idite na <i>MySQL Databases</i> i kreirajte bazu (npr. <code>mojweb_wp</code>), korisnika i dodijelite mu sve privilegije nad bazom.</li>
+                    <li>U <i>File Manageru</i> unutar <code>public_html</code> napravite mapu <code>wordpress-stranica</code>. Unutar nje prenesite i otpakirajte preuzetu WordPress `.zip` datoteku.</li>
+                    <li>Otvorite u pregledniku npr. <code>vaša-domena.com/wordpress-stranica</code>, unesite podatke baze (ime baze, korisnik, lozinka) i dovršite instalaciju.</li>
+                </ul>
+            </li>
+            <li><strong>Instalacija Tema i Dodataka:</strong>
+                <ul>
+                    <li>U administraciji idite na <i>Izgled > Teme > Dodaj novu</i> i instalirajte željenu temu (npr. Astra).</li>
+                    <li>Idite na <i>Dodaci > Dodaj novi</i> te pronađite i instalirajte: **Contact Form 7** (za kontakt formu), **Yoast SEO** i **WP Super Cache** (ili W3 Total Cache). Aktivirajte ih.</li>
+                </ul>
+            </li>
+            <li><strong>Izrada Stranica:</strong>
+                <ul>
+                    <li>Idite na <i>Stranice > Dodaj novu</i> i kreirajte 4 stranice: Naslovnica, Blog, Kontakt, O nama.</li>
+                    <li><strong>Naslovnica:</strong> Dodajte naslov, sliku, Lorem ipsum tekst i kontakt podatke.</li>
+                    <li><strong>Kontakt:</strong> Umetnite kratki kod (shortcode) kreirane forme iz Contact Form 7 dodatka.</li>
+                    <li><strong>O nama:</strong> Unesite tekst i profilnu sliku. U dijelu *Yoast SEO* na dnu postavite SEO Naslov: <code>O nama – moja prva WP stranica</code> i Meta description: odlomak tekst.</li>
+                </ul>
+            </li>
+            <li><strong>Postavke Čitanja i Objave:</strong>
+                <ul>
+                    <li>Idite na <i>Postavke > Čitanje</i>. Pod "Prikaz početne stranice" odaberite "Statičnu stranicu". Za Početnu stranicu postavite *Naslovnica*, a za Stranicu s objavama postavite *Blog*. Spremite izmjene.</li>
+                    <li>Idite na <i>Objave > Dodaj novu</i> i objavite 3 različita članka (naslov, tekst, i postavite Istaknutu sliku / Featured Image).</li>
+                </ul>
+            </li>
+            <li><strong>Kreiranje Izbornika:</strong>
+                <ul>
+                    <li>Idite na <i>Izgled > Izbornici</i> (ili kroz Block Editor/Header postavke). Kreirajte novi izbornik, označite stranice Naslovnica, Blog, Kontakt, O nama, dodajte ih u izbornik i postavite ga kao primarni izbornik (Primary Menu). Spremite.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>
