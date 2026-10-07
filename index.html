@@ -52,7 +52,7 @@
             margin-bottom: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: block; /* Osigurava vidljivost sekcija */
+            display: block;
         }
 
         h2 {
@@ -69,6 +69,8 @@
 
         .qa-block {
             margin-bottom: 18px;
+            border-bottom: 1px dashed #dee2e6;
+            padding-bottom: 10px;
         }
 
         .question {
@@ -84,66 +86,27 @@
         .practical-box {
             background-color: #f1f3f5;
             border-left: 4px solid #28a745;
-            padding: 15px;
-            margin: 20px 0;
+            padding: 20px;
+            margin: 25px 0;
             border-radius: 0 6px 6px 0;
         }
 
-        /* === DEMO STILOVI IZ CSS VJEŽBI === */
+        /* === STILOVI ZA PRAKTIČNE VJEŽBE (HTML & CSS) === */
+        p.styled-p {
+            margin: 10px 15px 10px 15px;
+            background-color: #e2e8f0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
         img.demo-img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 10px auto;
+            margin: 10px 0;
+            border-radius: 4px;
         }
 
-        p.styled-p {
-            margin: 10px 15px 10px 15px;
-        }
-
-        .div-container {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-
-        .div1 {
-            width: 160px;
-            height: 160px;
-            background-color: purple;
-            border: 2px solid yellow;
-            margin: 10px;
-            padding: 15px;
-            box-sizing: content-box;
-            color: white;
-        }
-
-        .div2 {
-            width: 160px;
-            height: 160px;
-            background-color: purple;
-            border: 2px solid yellow;
-            margin: 10px;
-            padding: 15px;
-            box-sizing: border-box;
-            background-image: url('https://via.placeholder.com/100');
-            background-repeat: no-repeat;
-            background-size: 50%;
-            background-position: center;
-            color: white;
-        }
-
-        .div3 {
-            width: 300px;
-            height: 120px;
-            background: linear-gradient(to right, red, blue);
-            border: 1px solid black;
-            padding: 10px;
-            color: white;
-        }
-
-        /* Tablica iz vježbe */
         table.demo-table {
             border-collapse: collapse;
             width: 100%;
@@ -157,11 +120,10 @@
         }
 
         table.demo-table td, table.demo-table th {
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
 
-        /* Forma iz vježbe */
         form.demo-form {
             background-color: #fff;
             padding: 20px;
@@ -187,11 +149,58 @@
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
-        /* === PARCIJALNI ISPIT LAYOUT (Prilagođen da ne ruši stranicu) === */
+        .div-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .div1 {
+            width: 160px;
+            height: 160px;
+            background-color: purple;
+            border: 2px solid yellow;
+            margin: 10px;
+            padding: 15px;
+            box-sizing: content-box;
+            color: white;
+            font-weight: bold;
+        }
+
+        .div2 {
+            width: 160px;
+            height: 160px;
+            background-color: purple;
+            border: 2px solid yellow;
+            margin: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            background-image: url('https://via.placeholder.com/100');
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-position: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .div3 {
+            width: 300px;
+            height: 120px;
+            background: linear-gradient(to right, red, blue);
+            border: 1px solid black;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* === PARCIJALNI ISPIT LAYOUT (Prilagođen i odzivan) === */
         .exam-wrapper {
-            overflow-x: auto; /* Omogućuje skrolanje ako je ekran manji od 1060px */
+            overflow-x: auto;
             padding-bottom: 15px;
         }
 
@@ -300,95 +309,9 @@
 
     <header>
         <h1>Priprema za ispit – Algebra</h1>
-        <p>Sva teorijska pitanja, praktične vježbe i zadaci u jednoj datoteci za učenje[cite: 2].</p>
+        <p>Sva teorijska pitanja po sistemu 1 pitanje - 1 odgovor i gotove vježbe s točnim kodom u jednoj datoteci.</p>
     </header>
 
     <!-- Navigacija / Sadržaj -->
     <nav class="toc">
         <h3>Sadržaj</h3>
-        <ul>
-            <li><a href="#uvod">1. Uvod i obrada slike (Teorija & Vježbe)</a></li>
-            <li><a href="#html">2. HTML (Teorija & Vježbe)</a></li>
-            <li><a href="#css">3. CSS (Teorija & Vježbe)</a></li>
-            <li><a href="#parcijalni">4. Primjer Parcijalni Ispit Layout</a></li>
-            <li><a href="#wordpress">5. WordPress i SEO (Teorija & Vježbe)</a></li>
-        </ul>
-    </nav>
-
-    <!-- 1. UVOD I OBRADA SLIKE -->
-    <section id="uvod">
-        <h2>1. UVOD I OBRADA SLIKE[cite: 2]</h2>
-        
-        <div class="qa-block">
-            <div class="question">Koji su elementi web dizajna?</div>
-            <div class="answer">Layout (raspored), tipografija, boje, slike/grafika, navigacija, sadržaj i interaktivnost.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što je world wide web?</div>
-            <div class="answer">Mrežni sustav međusobno povezanih hipertekstualnih dokumenata kojima se pristupa putem interneta pomoću web preglednika.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja je razlika između hypermedijskih dokumenata i hyperveza?</div>
-            <div class="answer">Hypermedijski dokumenti sadrže različite medije (tekst, slike, zvuk, video), dok su hyperveze (poveznice/linkovi) elementi koji vode na druge dokumente ili resurse.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Kako radi http?</div>
-            <div class="answer">Klijent (browser) šalje HTTP zahtjev serveru, a server obrađuje zahtjev i vraća HTTP odgovor koji sadrži traženi sadržaj ili šifru pogreške.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja je razlika između https i http protokola?</div>
-            <div class="answer">HTTPS koristi SSL/TLS enkripciju za siguran i šifriran prijenos podataka, dok HTTP prenosi podatke u čistom, nešifriranom tekstu.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što je http metoda (method) i koje sve postoje?</div>
-            <div class="answer">HTTP metoda označava akciju koju klijent želi izvršiti na resursu. Najčešće su: GET (dohvaćanje), POST (slanje podataka), PUT (ažuriranje), DELETE (brisanje) i PATCH (djelomična izmjena).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što predstavljaju http status kodovi (1xx do 5xx)?</div>
-            <div class="answer">
-                1xx: Informativni kodovi<br>
-                2xx: Uspješne akcije (npr. 200 OK)<br>
-                3xx: Preusmjeravanja (npr. 301 Moved Permanently)<br>
-                4xx: Klijentske pogreške (npr. 404 Not Found)<br>
-                5xx: Poslužiteljske pogreške (npr. 500 Internal Server Error)
-            </div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što je URL i od čega se sastoji?</div>
-            <div class="answer">URL (Uniform Resource Locator) je adresa resursa na internetu. Sastoji se od: protokola (https://), domene/domenskog imena (example.com), porta (:443), staze (/folder/index.html) i parametara (?id=1).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Što je web browser?</div>
-            <div class="answer">Softverska aplikacija za dohvaćanje, interpretaciju i prikazivanje HTML/CSS/JS dokumenata s interneta.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja je razlika između browser enginea i JavaScript enginea?</div>
-            <div class="answer">Browser engine rendersira HTML i CSS te gradi vizualni prikaz stranice, dok JavaScript engine prevodi i izvršava JavaScript kôd.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koji su najčešće korišteni preglednici?</div>
-            <div class="answer">Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja je razlika između aditivnog i subtraktivnog modela boje?</div>
-            <div class="answer">Aditivni model (RGB) zbraja svjetlost i koristi se za ekrane (miješanjem svih nastaje bijela). Subtraktivni model (CMYK) oduzima svjetlost miješanjem pigmenata u tisku (miješanjem nastaje crna).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Razlika između heksadekadskog i RGB zapisa boje?</div>
-            <div class="answer">RGB zapis koristi dekadske vrijednosti od 0 do 255 za crvenu, zelenu i plavu (npr. rgb(255, 0, 0)), dok heksadekadski zapis koristi bazu 16 i format od 6 znakova (npr. #FF0000).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koje su primarne, a koje sekundarne boje?</div>
-            <div class="answer">Primarne aditivne boje na ekranu su crvena, zelena i plava (RGB). Sekundarne boje nastaju miješanjem dviju primarnih (npr. žuta, cijan, magenta).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koje kategorije fontova postoje?</div>
-            <div class="answer">Serif (sa kukičicama/serifima), Sans-serif (bez serifa), Monospace (fiksna širina slova), Script (rukopisni) i Display/Decorative (ukrasni).</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja je razlika između fonta, font family i glypha?</div>
-            <div class="answer">Font family je obitelj stilova (npr. Arial), font je konkretna inačica s definiranom veličinom i težinom (npr. Arial Bold 12pt), a glyph je pojedinačni grafički prikaz određenog znaka ili slova.</div>
-        </div>
-        <div class="qa-block">
-            <div class="question">Koja je razlika između vektorske i rasterske grafike?</div>
-            <div class="answer">V
